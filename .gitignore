@@ -1,0 +1,28 @@
+# Build directories
+/build/
+cmake-build-*/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+build.ninja
+.ninja_deps
+.ninja_log
+
+# Compiler output
+*.o
+*.obj
+*.out
+*.exe
+
+# IDE files
+/.idea/
+/.vscode/
+
+# OS files
+.DS_Store
+
+# Custom
+tests/main
