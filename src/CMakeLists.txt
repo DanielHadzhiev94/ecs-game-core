@@ -1,11 +1,16 @@
 add_library(ecs_core
         core/entity/entity_id.h
         core/entity/entity_manager.h
-        core/entity/entity_manager.cpp)
+        core/entity/entity_manager.cpp
+        core/storage/component_storage.h
+        core/storage/component_storage.cpp
+        core/storage/component_storage.cpp
+)
 
 target_include_directories(ecs_core
         PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/core
+
 )
 
 target_compile_options(ecs_core PRIVATE
