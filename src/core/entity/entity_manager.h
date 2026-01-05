@@ -1,8 +1,21 @@
-//
-// Created by Daniel Hadzhiev on 05.01.26.
-//
+#pragma once
 
-#ifndef ECS_GAME_CORE_ENTITY_MANAGER_H
-#define ECS_GAME_CORE_ENTITY_MANAGER_H
+#include <vector>
+#include "entity_id.h"
 
-#endif //ECS_GAME_CORE_ENTITY_MANAGER_H
+struct Slot {
+    uint32_t generation = 0;
+};
+
+class EntityManager {
+public:
+    EntityId create_entity();
+
+    void destroy(EntityId);
+
+    bool is_alive(EntityId) const;
+
+private:
+    std::vector<Slot> slots;
+    std::vector<uint32_t> free_indexes;
+};

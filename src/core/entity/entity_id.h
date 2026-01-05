@@ -1,8 +1,6 @@
-//
-// Created by Daniel Hadzhiev on 05.01.26.
-//
+#pragma once
 
-#ifndef ECS_GAME_CORE_ENTITY_ID_H
-#define ECS_GAME_CORE_ENTITY_ID_H
-
-#endif //ECS_GAME_CORE_ENTITY_ID_H
+struct EntityId {
+    std::uint32_t index;
+    std::uint32_t generation;
+};
