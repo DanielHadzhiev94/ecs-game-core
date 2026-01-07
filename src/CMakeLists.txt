@@ -2,9 +2,9 @@ add_library(ecs_core
         core/entity/entity_id.h
         core/entity/entity_manager.h
         core/entity/entity_manager.cpp
+        core/registry/registry.h
+        core/registry/registry.cpp
         core/storage/component_storage.h
-        core/storage/component_storage.cpp
-        core/storage/component_storage.cpp
 )
 
 target_include_directories(ecs_core

@@ -1,4 +1,5 @@
 #pragma once
+#include <cstdint>
 
 struct EntityId {
     std::uint32_t index;

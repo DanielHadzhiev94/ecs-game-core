@@ -1,24 +1,40 @@
 #pragma once
-#include <memory>
-#include <map>
-#include <entity/entity_id.h>
+#include <unordered_map>
+#include "../entity/entity_id.h"
 
-
-template<typename T>
-struct Component {
-    EntityId generation;
-    T component;
-};
 
 template<typename T>
 class ComponentStorage {
 public:
-    bool create_component(EntityId);
+    bool create(EntityId entity) {
+        auto it = components.find(entity.index);
+        if (it != components.end())
+            return false;
 
-    T *get(EntityId);
+        components.emplace(entity.index, T{});
 
-    bool destroy(EntityId);
+        return true;
+    }
+
+    T *get(EntityId entity) {
+        auto it = components.find(entity.index);
+        if (it == components.end())
+            return nullptr;
+
+        return &it->second;
+    }
+
+    bool destroy(EntityId entity) {
+        auto it = components.find(entity.index);
+        if (it != components.end()) {
+            components.erase(entity.index);
+
+            return true;
+        }
+
+        return false;
+    }
 
 private:
-    std::unordered_map<std::size_t, Component<T> > components;
+    std::unordered_map<std::size_t, T> components;
 };
