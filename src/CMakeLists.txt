@@ -5,6 +5,7 @@ add_library(ecs_core
         core/registry/registry.h
         core/registry/registry.cpp
         core/storage/component_storage.h
+        core/storage/storage_manager.h
 )
 
 target_include_directories(ecs_core

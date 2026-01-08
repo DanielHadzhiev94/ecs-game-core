@@ -2,9 +2,12 @@
 #include <unordered_map>
 #include "../entity/entity_id.h"
 
+struct IComponentStorage {
+    virtual ~IComponentStorage() = default;
+};
 
 template<typename T>
-class ComponentStorage {
+class ComponentStorage final : public IComponentStorage {
 public:
     bool create(EntityId entity) {
         auto it = components.find(entity.index);
