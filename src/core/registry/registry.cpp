@@ -3,17 +3,17 @@
 #include "entity/entity_manager.h"
 
 EntityId Registry::create() {
-    return em.create_entity();
+    return entity_manager.create_entity();
 }
 
 bool Registry::is_alive(const EntityId entity) const {
-    return em.is_alive(entity);
+    return entity_manager.is_alive(entity);
 }
 
 void Registry::destroy(const EntityId entity) {
     if (!is_alive(entity))
         return;
 
-    sm.destroy_entity(entity);
-    em.destroy(entity);
+    storage_manager.destroy_entity(entity);
+    entity_manager.destroy(entity);
 }

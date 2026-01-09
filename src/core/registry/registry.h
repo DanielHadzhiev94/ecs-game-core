@@ -10,7 +10,7 @@ class StorageManager;
 class Registry {
 public:
     Registry(EntityManager &entity_manager, StorageManager &storage_manager)
-        : em(entity_manager), sm(storage_manager) {
+        : entity_manager(entity_manager), storage_manager(storage_manager) {
     }
 
     EntityId create();
@@ -35,8 +35,8 @@ public:
     void destroy(EntityId);
 
 private:
-    EntityManager &em;
-    StorageManager &sm;
+    EntityManager &entity_manager;
+    StorageManager &storage_manager;
 };
 
 template<typename T>
@@ -47,7 +47,7 @@ bool Registry::add(const EntityId entity, T) {
     if (has<T>(entity))
         return false;
 
-    auto *storage = sm.get_or_create<T>();
+    auto *storage = storage_manager.get_or_create<T>();
     return storage->create(entity);
 }
 
@@ -59,20 +59,20 @@ bool Registry::remove(const EntityId entity) {
     if (!has<T>(entity))
         return false;
 
-    auto storage = sm.get<T>();
+    auto storage = storage_manager.get<T>();
     return storage->destroy(entity);
 }
 
 template<typename T>
 bool Registry::has(const EntityId entity) const {
-    auto *storage = sm.get<T>();
-    return em.is_alive(entity) && storage && storage->get(entity);
+    auto *storage = storage_manager.get<T>();
+    return entity_manager.is_alive(entity) && storage && storage->get(entity);
 }
 
 template<typename T>
 T *Registry::get(const EntityId entity) {
-    auto *storage = sm.get<T>();
-    if (!em.is_alive(entity) || !storage)
+    auto *storage = storage_manager.get<T>();
+    if (!entity_manager.is_alive(entity) || !storage)
         return nullptr;
 
     return storage->get(entity);
@@ -80,8 +80,8 @@ T *Registry::get(const EntityId entity) {
 
 template<typename T>
 const T *Registry::get(const EntityId entity) const {
-    auto *storage = sm.get<T>();
-    if (!em.is_alive(entity) || !storage)
+    auto *storage = storage_manager.get<T>();
+    if (!entity_manager.is_alive(entity) || !storage)
         return nullptr;
 
     return storage->get(entity);
