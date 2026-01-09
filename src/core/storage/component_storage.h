@@ -4,6 +4,7 @@
 
 struct IComponentStorage {
     virtual ~IComponentStorage() = default;
+    virtual bool destroy(EntityId);
 };
 
 template<typename T>
@@ -27,7 +28,7 @@ public:
         return &it->second;
     }
 
-    bool destroy(EntityId entity) {
+    bool destroy(EntityId entity) override{
         auto it = components.find(entity.index);
         if (it != components.end()) {
             components.erase(entity.index);

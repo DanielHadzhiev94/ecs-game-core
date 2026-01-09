@@ -16,6 +16,8 @@ public:
     template<typename T>
     bool remove_storage();
 
+    void destroy_entity(EntityId);
+
 private:
     std::unordered_map<std::type_index, std::unique_ptr<IComponentStorage> > components;
 
@@ -77,3 +79,4 @@ bool StorageManager::remove_storage() {
 
     return false;
 }
+
