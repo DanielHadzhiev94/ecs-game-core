@@ -34,6 +34,8 @@ public:
 
     void destroy(EntityId);
 
+    std::size_t entity_count() const;
+
 private:
     EntityManager &entity_manager;
     StorageManager &storage_manager;

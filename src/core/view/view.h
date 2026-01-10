@@ -1,4 +1,5 @@
 #pragma once
+#include <cstdint>
 #include "view_iterator.h"
 #include "../registry/registry.h"
 
@@ -9,16 +10,24 @@ public:
 
     View() = delete;
 
-    explicit View(Registry &_registry)
-        : registry(_registry) {
+    explicit View(Registry &registry)
+        : registry(registry),
+          begin_index(0),
+          end_index(registry.entity_count()) {
     }
 
     ~View() = default;
 
-    iterator begin() const;
+    iterator begin() const {
+        return iterator(registry, begin_index, end_index);
+    };
 
-    iterator end() const;
+    iterator end() const {
+        return iterator(registry, end_index, end_index);
+    };
 
 private:
     Registry &registry;
+    std::size_t begin_index;
+    std::size_t end_index;
 };

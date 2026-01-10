@@ -17,3 +17,7 @@ void Registry::destroy(const EntityId entity) {
     storage_manager.destroy_entity(entity);
     entity_manager.destroy(entity);
 }
+
+std::size_t Registry::entity_count() const {
+    return entity_manager.entity_count();
+}
