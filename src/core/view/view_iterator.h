@@ -2,6 +2,7 @@
 
 #include <cstddef>
 
+#include "../entity/entity_id.h"
 #include "../registry/registry.h"
 
 template<typename... Ts>
@@ -14,6 +15,36 @@ public:
     }
 
     ~ViewIterator() = default;
+
+    ViewIterator &operator++() {
+        ++current_index;
+        advanced_to_valid();
+        return *this;
+    }
+
+
+    bool operator==(const ViewIterator &other) const {
+        return &registry == &other.registry &&
+               current_index == other.current_index;
+    }
+
+    bool operator!=(const ViewIterator &other) const {
+        return &registry != &other.registry ||
+               current_index != other.current_index;
+    }
+
+    void advanced_to_valid() {
+        while (current_index < end_index) {
+            EntityId entity{current_index};
+            
+            if (registry.is_alive(entity) &&
+                (registry.has<Ts>(entity) && ...)) {
+                break;
+            }
+
+            ++current_index;
+        }
+    }
 
 private:
     Registry &registry;

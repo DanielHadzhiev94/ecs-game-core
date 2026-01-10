@@ -19,8 +19,10 @@ public:
     ~View() = default;
 
     iterator begin() const {
-        return iterator(registry, begin_index, end_index);
-    };
+        iterator it(registry, begin_index, end_index);
+        it.advance_to_valid();
+        return it;
+    }
 
     iterator end() const {
         return iterator(registry, end_index, end_index);
