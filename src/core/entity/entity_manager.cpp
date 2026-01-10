@@ -33,3 +33,7 @@ void EntityManager::destroy(const EntityId entity_id) {
         free_indexes.push_back(entity_id.index);
     }
 }
+
+std::size_t EntityManager::entity_count() const {
+    return slots.size();
+}

@@ -15,6 +15,8 @@ public:
 
     bool is_alive(EntityId) const;
 
+    std::size_t entity_count() const;
+
 private:
     std::vector<Slot> slots;
     std::vector<uint32_t> free_indexes;
