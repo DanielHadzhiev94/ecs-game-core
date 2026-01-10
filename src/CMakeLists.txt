@@ -7,6 +7,7 @@ add_library(ecs_core
         core/storage/component_storage.h
         core/storage/storage_manager.h
         core/storage/storage_manager.cpp
+        core/view/view.h
 )
 
 target_include_directories(ecs_core
