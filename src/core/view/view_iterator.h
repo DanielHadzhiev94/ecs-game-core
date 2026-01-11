@@ -22,7 +22,7 @@ public:
 
     ViewIterator &operator++() {
         ++current_index;
-        advanced_to_valid();
+        advance_to_valid();
         return *this;
     }
 
@@ -36,7 +36,7 @@ public:
                current_index != other.current_index;
     }
 
-    void advanced_to_valid() {
+    void advance_to_valid() {
         while (current_index < end_index) {
             EntityId entity{current_index};
 
@@ -51,6 +51,6 @@ public:
 
 private:
     Registry &registry;
-    std::size_t current_index;
-    std::size_t end_index;
+    std::uint32_t current_index;
+    std::uint32_t end_index;
 };
