@@ -72,7 +72,7 @@ bool Registry::has(const EntityId entity) const {
 }
 
 template<typename T>
-T *Registry::get(const EntityId entity) {
+T *Registry::get(EntityId entity) {
     auto *storage = storage_manager.get<T>();
     if (!entity_manager.is_alive(entity) || !storage)
         return nullptr;
@@ -81,7 +81,7 @@ T *Registry::get(const EntityId entity) {
 }
 
 template<typename T>
-const T *Registry::get(const EntityId entity) const {
+const T *Registry::get(EntityId entity) const {
     auto *storage = storage_manager.get<T>();
     if (!entity_manager.is_alive(entity) || !storage)
         return nullptr;

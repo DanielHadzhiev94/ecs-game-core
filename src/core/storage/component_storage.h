@@ -4,6 +4,7 @@
 
 struct IComponentStorage {
     virtual ~IComponentStorage() = default;
+
     virtual bool destroy(EntityId);
 };
 
@@ -28,7 +29,15 @@ public:
         return &it->second;
     }
 
-    bool destroy(EntityId entity) override{
+    const T *get(EntityId entity) const {
+        auto it = components.find(entity.index);
+        if (it == components.end())
+            return nullptr;
+
+        return &it->second;
+    }
+
+    bool destroy(EntityId entity) override {
         auto it = components.find(entity.index);
         if (it != components.end()) {
             components.erase(entity.index);

@@ -1,5 +1,5 @@
 #pragma once
-#include <cstdint>
+
 #include "view_iterator.h"
 #include "../registry/registry.h"
 
@@ -26,10 +26,10 @@ public:
 
     iterator end() const {
         return iterator(registry, end_index, end_index);
-    };
+    }
 
 private:
     Registry &registry;
-    std::size_t begin_index;
-    std::size_t end_index;
+    std::uint32_t begin_index;
+    std::uint32_t end_index;
 };

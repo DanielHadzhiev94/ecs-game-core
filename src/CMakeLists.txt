@@ -9,6 +9,11 @@ add_library(ecs_core
         core/storage/storage_manager.cpp
         core/view/view.h
         core/view/view_iterator.h
+        game/systems/movement_system.h
+        game/components/position.h
+        game/systems/system.h
+        game/components/velocity.h
+        game/systems/movements_system.cpp
 )
 
 target_include_directories(ecs_core
