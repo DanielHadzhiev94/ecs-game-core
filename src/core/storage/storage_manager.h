@@ -14,6 +14,9 @@ public:
     const ComponentStorage<T> *get() const;
 
     template<typename T>
+    ComponentStorage<T> *get();
+
+    template<typename T>
     bool remove_storage();
 
     void destroy_entity(EntityId);
@@ -71,6 +74,12 @@ const ComponentStorage<T> *StorageManager::get() const {
 }
 
 template<typename T>
+ComponentStorage<T> *StorageManager::get() {
+    return find_storage<T>();
+}
+
+
+template<typename T>
 bool StorageManager::remove_storage() {
     const std::type_index key{typeid(T)};
 
@@ -79,4 +88,3 @@ bool StorageManager::remove_storage() {
 
     return false;
 }
-
