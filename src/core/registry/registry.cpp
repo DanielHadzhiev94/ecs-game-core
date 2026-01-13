@@ -2,6 +2,10 @@
 
 #include "entity/entity_manager.h"
 
+Registry::Registry(EntityManager &entity_manager, StorageManager &storage_manager)
+    : entity_manager(entity_manager), storage_manager(storage_manager) {
+}
+
 EntityId Registry::create() {
     return entity_manager.create_entity();
 }
@@ -20,4 +24,20 @@ void Registry::destroy(const EntityId entity) {
 
 std::size_t Registry::entity_count() const {
     return entity_manager.entity_count();
+}
+
+bool Registry::schedule_destruction(EntityId entity) {
+    if (!entity_manager.is_alive(entity))
+        return false;
+
+    auto [_, result] = destruction_queue.insert(entity);
+    return result;
+}
+
+void Registry::execute_scheduled_destruction() {
+    for (auto &entity: destruction_queue) {
+        destroy(entity);
+    }
+
+    destruction_queue.clear();
 }

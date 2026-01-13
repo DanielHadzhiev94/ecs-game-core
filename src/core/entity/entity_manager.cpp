@@ -16,21 +16,22 @@ EntityId EntityManager::create_entity() {
     return {index, slots[index].generation};
 }
 
-bool EntityManager::is_alive(const EntityId entity_id) const {
-    if (entity_id.index >= slots.size())
+bool EntityManager::is_alive(const EntityId entity) const {
+    if (entity.index >= slots.size())
         return false;
 
-    if (const auto &[generation] = slots[entity_id.index]; entity_id.generation != generation)
+    const auto &[generation] = slots[entity.index];
+    if (entity.generation != generation)
         return false;
 
     return true;
 }
 
-void EntityManager::destroy(const EntityId entity_id) {
-    if (is_alive(entity_id)) {
-        auto &[generation] = slots[entity_id.index];
+void EntityManager::destroy(const EntityId entity) {
+    if (is_alive(entity)) {
+        auto &[generation] = slots[entity.index];
         ++generation;
-        free_indexes.push_back(entity_id.index);
+        free_indexes.push_back(entity.index);
     }
 }
 
