@@ -5,5 +5,5 @@ class System {
 public:
     virtual ~System() = default;
 
-    virtual void update(Registry& registry, float df) = 0;
+    virtual void update(Registry& registry, float dt) = 0;
 };

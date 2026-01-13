@@ -14,6 +14,10 @@ add_library(ecs_core
         game/systems/system.h
         game/components/velocity.h
         game/systems/movements_system.cpp
+        game/world.h
+        game/game.h
+        game/world.cpp
+        game/game.cpp
 )
 
 target_include_directories(ecs_core
