@@ -20,6 +20,7 @@ add_library(ecs_core
         game/game.cpp
         game/spawn/entity_factory.h
         game/spawn/entity_factory.cpp
+        core/entity/entity_id_hash.h
 )
 
 target_include_directories(ecs_core

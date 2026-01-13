@@ -1,6 +1,9 @@
 #pragma once
 
+#include <unordered_set>
+
 #include "entity/entity_id.h"
+#include "entity/entity_id_hash.h"
 #include "entity/entity_manager.h"
 #include "storage/storage_manager.h"
 
@@ -9,9 +12,7 @@ class StorageManager;
 
 class Registry {
 public:
-    Registry(EntityManager &entity_manager, StorageManager &storage_manager)
-        : entity_manager(entity_manager), storage_manager(storage_manager) {
-    }
+    explicit Registry(EntityManager &entity_manager, StorageManager &storage_manager);
 
     EntityId create();
 
@@ -32,13 +33,19 @@ public:
 
     bool is_alive(EntityId) const;
 
-    void destroy(EntityId);
 
     std::size_t entity_count() const;
+
+    bool schedule_destruction(EntityId);
+
+    void execute_scheduled_destruction();
 
 private:
     EntityManager &entity_manager;
     StorageManager &storage_manager;
+    std::unordered_set<EntityId> destruction_queue;
+
+    void destroy(EntityId);
 };
 
 template<typename T>
@@ -62,6 +69,9 @@ bool Registry::remove(const EntityId entity) {
         return false;
 
     auto storage = storage_manager.get<T>();
+    if (storage == nullptr)
+        return false;
+
     return storage->destroy(entity);
 }
 
