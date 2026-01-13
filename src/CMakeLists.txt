@@ -18,6 +18,8 @@ add_library(ecs_core
         game/game.h
         game/world.cpp
         game/game.cpp
+        game/spawn/entity_factory.h
+        game/spawn/entity_factory.cpp
 )
 
 target_include_directories(ecs_core
