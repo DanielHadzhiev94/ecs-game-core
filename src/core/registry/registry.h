@@ -16,7 +16,7 @@ public:
     EntityId create();
 
     template<typename T>
-    bool add(EntityId, T);
+    bool add(EntityId);
 
     template<typename T>
     bool remove(EntityId);
@@ -42,15 +42,15 @@ private:
 };
 
 template<typename T>
-bool Registry::add(const EntityId entity, T) {
+bool Registry::add(const EntityId entity) {
     if (!is_alive(entity))
         return false;
 
     if (has<T>(entity))
         return false;
 
-    auto *storage = storage_manager.get_or_create<T>();
-    return storage->create(entity);
+    auto &storage = storage_manager.get_or_create<T>();
+    return storage.create(entity);
 }
 
 template<typename T>
