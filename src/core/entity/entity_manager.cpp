@@ -35,6 +35,6 @@ void EntityManager::destroy(const EntityId entity) {
     }
 }
 
-std::size_t EntityManager::entity_count() const {
+std::size_t EntityManager::entity_capacity() const {
     return slots.size();
 }

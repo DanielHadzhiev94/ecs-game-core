@@ -22,8 +22,8 @@ void Registry::destroy(const EntityId entity) {
     entity_manager.destroy(entity);
 }
 
-std::size_t Registry::entity_count() const {
-    return entity_manager.entity_count();
+std::size_t Registry::entity_capacity() const {
+    return entity_manager.entity_capacity();
 }
 
 bool Registry::schedule_destruction(EntityId entity) {
