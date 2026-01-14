@@ -13,7 +13,7 @@ public:
     explicit View(Registry &registry)
         : registry(registry),
           begin_index(0),
-          end_index(registry.entity_count()) {
+          end_index(registry.entity_capacity()) {
     }
 
     ~View() = default;

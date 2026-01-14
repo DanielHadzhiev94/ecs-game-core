@@ -34,7 +34,7 @@ public:
     bool is_alive(EntityId) const;
 
 
-    std::size_t entity_count() const;
+    std::size_t entity_capacity() const;
 
     bool schedule_destruction(EntityId);
 
