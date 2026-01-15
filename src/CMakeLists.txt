@@ -20,6 +20,9 @@ add_library(ecs_core
         game/spawn/entity_factory.h
         game/spawn/entity_factory.cpp
         core/entity/entity_id_hash.h
+        game/systems/lifetime_system.h
+        game/systems/lifetime_system.cpp
+        game/components/health.h
 )
 
 target_include_directories(ecs_core
