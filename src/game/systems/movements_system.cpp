@@ -3,14 +3,14 @@
 #include "../components/velocity.h"
 #include "view/view.h"
 
-void MovementSystem::update(Registry &registry, float dt) {
+void MovementSystem::fixed_update(Registry &registry, const float fixed_dt) {
     auto view = View<Position, Velocity>(registry);
 
     for (auto entity: view) {
         auto &transform = *registry.get<Position>(entity);
         const auto &velocity = *registry.get<Velocity>(entity);
 
-        transform.x += velocity.value * dt;
-        transform.y += velocity.value * dt;
+        transform.x += velocity.value * fixed_dt;
+        transform.y += velocity.value * fixed_dt;
     }
 }
