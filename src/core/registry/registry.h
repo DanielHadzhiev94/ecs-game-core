@@ -1,6 +1,7 @@
 #pragma once
 
 #include <unordered_set>
+#include <tuple>
 
 #include "entity/entity_id.h"
 #include "entity/entity_id_hash.h"
@@ -33,6 +34,7 @@ public:
 
     bool is_alive(EntityId) const;
 
+    EntityId entity_from_index(std::uint32_t) const;
 
     std::size_t entity_capacity() const;
 

@@ -3,6 +3,7 @@
 #include <vector>
 #include "entity_id.h"
 
+
 struct Slot {
     uint32_t generation = 0;
 };
@@ -14,6 +15,8 @@ public:
     void destroy(EntityId);
 
     bool is_alive(EntityId) const;
+
+    EntityId entity_from_index(uint32_t);
 
     std::size_t entity_capacity() const;
 

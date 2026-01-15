@@ -22,6 +22,10 @@ void Registry::destroy(const EntityId entity) {
     entity_manager.destroy(entity);
 }
 
+EntityId Registry::entity_from_index(std::uint32_t index) const {
+    return entity_manager.entity_from_index(index);
+}
+
 std::size_t Registry::entity_capacity() const {
     return entity_manager.entity_capacity();
 }

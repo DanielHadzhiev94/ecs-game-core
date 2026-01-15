@@ -5,7 +5,7 @@
 
 class World {
 public:
-    World() = default;
+    World() = delete;
 
     void update(float dt);
 
