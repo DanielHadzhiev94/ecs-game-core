@@ -11,7 +11,6 @@ add_library(ecs_core
         core/view/view_iterator.h
         game/systems/movement_system.h
         game/components/position.h
-        game/systems/system.h
         game/components/velocity.h
         game/systems/movements_system.cpp
         game/world.h

@@ -1,8 +1,7 @@
 #pragma once
-#include "system.h"
+#include "registry/registry.h"
 
-
-class MovementSystem : public System {
+class MovementSystem {
 public:
-    void update(Registry &registry, float dt) override;
+    void update(Registry &registry, float dt);
 };

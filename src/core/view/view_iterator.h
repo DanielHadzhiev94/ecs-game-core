@@ -17,7 +17,7 @@ public:
     ~ViewIterator() = default;
 
     EntityId operator*() const {
-        return EntityId{ current_index };
+        return registry.entity_from_index(current_index);
     }
 
     ViewIterator &operator++() {
@@ -38,7 +38,7 @@ public:
 
     void advance_to_valid() {
         while (current_index < end_index) {
-            EntityId entity{current_index};
+            EntityId entity = registry.entity_from_index(current_index);
 
             if (registry.is_alive(entity) &&
                 (registry.has<Ts>(entity) && ...)) {

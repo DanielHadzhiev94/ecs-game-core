@@ -1,6 +1,8 @@
 #include <iostream>
 #include "entity_manager.h"
 
+#include <cassert>
+
 
 EntityId EntityManager::create_entity() {
     std::uint32_t index;
@@ -33,6 +35,11 @@ void EntityManager::destroy(const EntityId entity) {
         ++generation;
         free_indexes.push_back(entity.index);
     }
+}
+
+EntityId EntityManager::entity_from_index(uint32_t index) {
+    assert(index < slots.size());
+    return EntityId{ index, slots[index].generation };
 }
 
 std::size_t EntityManager::entity_capacity() const {
