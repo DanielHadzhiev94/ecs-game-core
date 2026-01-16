@@ -9,10 +9,10 @@ add_library(ecs_core
         core/storage/storage_manager.cpp
         core/view/view.hpp
         core/view/view_iterator.hpp
-        game/systems/movement_system.hpp
+        game/systems/gameplay/movement_system.hpp
         game/components/position.hpp
         game/components/velocity.hpp
-        game/systems/movements_system.cpp
+        game/systems/gameplay/movements_system.cpp
         game/world/world.hpp
         game/game.hpp
         game/world/world.cpp
@@ -20,14 +20,14 @@ add_library(ecs_core
         game/spawn/entity_factory.hpp
         game/spawn/entity_factory.cpp
         core/entity/entity_id_hash.hpp
-        game/systems/lifetime_system.hpp
-        game/systems/lifetime_system.cpp
+        game/systems/gameplay/lifetime_system.hpp
+        game/systems/gameplay/lifetime_system.cpp
         game/components/health.hpp
         core/time/Clock.hpp
         core/time/Clock.cpp
         core/math/vec2.hpp
-        game/systems/render_system.hpp
-        game/systems/render_system.cpp
+        game/systems/render/render_system.hpp
+        game/systems/render/render_system.cpp
 )
 
 target_include_directories(ecs_core

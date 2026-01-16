@@ -1,6 +1,6 @@
-#include "render_system.hpp"
+#include "../render_system.hpp"
 
-#include "../components/position.hpp"
+#include "../../components/position.hpp"
 #include "view/view.hpp"
 
 void RenderSystem::render(Registry &registry, const float alpha) {

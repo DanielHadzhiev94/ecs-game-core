@@ -1,6 +1,6 @@
 #include "movement_system.hpp"
-#include "../components/position.hpp"
-#include "../components/velocity.hpp"
+#include "../../components/position.hpp"
+#include "../../components/velocity.hpp"
 #include "view/view.hpp"
 
 void MovementSystem::fixed_update(Registry &registry, const float fixed_dt) {

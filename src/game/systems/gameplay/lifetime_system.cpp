@@ -1,5 +1,5 @@
-#include "lifetime_system.hpp"
-#include "../components/health.hpp"
+#include "../lifetime_system.hpp"
+#include "../../components/health.hpp"
 #include "view/view.hpp"
 
 struct Health;
