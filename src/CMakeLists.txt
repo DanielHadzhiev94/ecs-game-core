@@ -28,6 +28,9 @@ add_library(ecs_core
         core/math/vec2.h
         game/systems/render_system.h
         game/systems/render_system.cpp
+        game/systems/camera_system.h
+        game/systems/camera_system.cpp
+        game/components/camera.h
 )
 
 target_include_directories(ecs_core

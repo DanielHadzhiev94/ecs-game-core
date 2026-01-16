@@ -1,7 +1,10 @@
 #pragma once
 
+#include "../components/camera.h"
 #include "../../core/registry/registry.h"
-#include "../systems/lifetime_System.h"
+
+#include "../systems/camera_system.h"
+#include "../systems/lifetime_system.h"
 #include "../systems/movement_system.h"
 #include "../systems/render_system.h"
 
@@ -17,8 +20,10 @@ public:
 
 private:
     Registry registry;
+    Camera camera;
 
     RenderSystem render_system;
+    CameraSystem camera_system;
     MovementSystem movement_system;
     LifetimeSystem lifetime_system;
 };
