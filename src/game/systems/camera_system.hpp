@@ -1,7 +1,7 @@
 #pragma once
 
 #include "registry/registry.h"
-#include "../components/camera.h"
+#include "../components/camera.hpp"
 
 class CameraSystem {
 public:

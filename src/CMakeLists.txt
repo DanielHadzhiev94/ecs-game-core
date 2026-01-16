@@ -25,12 +25,12 @@ add_library(ecs_core
         game/components/health.hpp
         core/time/Clock.hpp
         core/time/Clock.cpp
-        core/math/vec2.h
-        game/systems/render_system.h
+        core/math/vec2.hpp
+        game/systems/render_system.hpp
         game/systems/render_system.cpp
-        game/systems/camera_system.h
+        game/systems/camera_system.hpp
         game/systems/camera_system.cpp
-        game/components/camera.h
+        game/components/camera.hpp
 )
 
 target_include_directories(ecs_core

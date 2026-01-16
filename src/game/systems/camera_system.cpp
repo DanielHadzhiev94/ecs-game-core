@@ -1,4 +1,4 @@
-#include "camera_system.h"
+#include "camera_system.hpp"
 
 #include "../components/position.h"
 #include "view/view.h"
