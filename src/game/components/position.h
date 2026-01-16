@@ -1,6 +1,7 @@
 #pragma once
+#include "math/vec2.h"
 
 struct Position {
-    float x = 0.0F;
-    float y = 0.0F;
+    Vec2 current;
+    Vec2 previous;
 };

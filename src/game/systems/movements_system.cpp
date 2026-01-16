@@ -10,7 +10,10 @@ void MovementSystem::fixed_update(Registry &registry, const float fixed_dt) {
         auto &transform = *registry.get<Position>(entity);
         const auto &velocity = *registry.get<Velocity>(entity);
 
-        transform.x += velocity.value * fixed_dt;
-        transform.y += velocity.value * fixed_dt;
+        // For interpolation
+        transform.previous = transform.current;
+
+        transform.current.x += velocity.value * fixed_dt;
+        transform.current.y += velocity.value * fixed_dt;
     }
 }

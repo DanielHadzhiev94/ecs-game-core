@@ -34,6 +34,9 @@ void Game::run() {
             accumulator -= FIXED_DT;
         }
 
+        const float alpha = accumulator / FIXED_DT;
+
         world.update(frameTime);
+        world.render(alpha);
     }
 }

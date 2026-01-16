@@ -13,9 +13,9 @@ add_library(ecs_core
         game/components/position.h
         game/components/velocity.h
         game/systems/movements_system.cpp
-        game/world.h
+        game/world/world.h
         game/game.h
-        game/world.cpp
+        game/world/world.cpp
         game/game.cpp
         game/spawn/entity_factory.h
         game/spawn/entity_factory.cpp
@@ -25,6 +25,9 @@ add_library(ecs_core
         game/components/health.h
         core/time/Clock.h
         core/time/Clock.cpp
+        core/math/vec2.h
+        game/systems/render_system.h
+        game/systems/render_system.cpp
 )
 
 target_include_directories(ecs_core
