@@ -3,7 +3,7 @@
 #include <typeindex>
 #include <unordered_map>
 #include <memory>
-#include "component_storage.h"
+#include "component_storage.hpp"
 
 class StorageManager {
 public:

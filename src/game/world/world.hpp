@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../../core/registry/registry.h"
-#include "../systems/lifetime_System.h"
-#include "../systems/movement_system.h"
-#include "../systems/render_system.h"
+#include "../../core/registry/registry.hpp"
+#include "../systems/gameplay/lifetime_system.hpp"
+#include "../systems/movement_system.hpp"
+#include "../systems/render/render_system.hpp"
 
 class World {
 public:

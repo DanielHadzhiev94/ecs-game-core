@@ -2,8 +2,8 @@
 
 #include <cstddef>
 
-#include "../entity/entity_id.h"
-#include "../registry/registry.h"
+#include "../entity/entity_id.hpp"
+#include "../registry/registry.hpp"
 
 template<typename... Ts>
 class ViewIterator {

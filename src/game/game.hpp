@@ -1,7 +1,7 @@
 #pragma once
 
-#include "world/world.h"
-#include "time/Clock.h"
+#include "world/world.hpp"
+#include "time/Clock.hpp"
 
 enum class GameState {
     Idle,

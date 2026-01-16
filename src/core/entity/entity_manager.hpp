@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "entity_id.h"
+#include "entity_id.hpp"
 
 
 struct Slot {

@@ -3,10 +3,10 @@
 #include <unordered_set>
 #include <tuple>
 
-#include "entity/entity_id.h"
-#include "entity/entity_id_hash.h"
-#include "entity/entity_manager.h"
-#include "storage/storage_manager.h"
+#include "entity/entity_id.hpp"
+#include "entity/entity_id_hash.hpp"
+#include "entity/entity_manager.hpp"
+#include "storage/storage_manager.hpp"
 
 class EntityManager;
 class StorageManager;

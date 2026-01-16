@@ -1,5 +1,5 @@
 #include <iostream>
-#include "entity_manager.h"
+#include "entity_manager.hpp"
 
 #include <cassert>
 
