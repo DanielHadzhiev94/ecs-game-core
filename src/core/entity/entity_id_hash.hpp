@@ -1,7 +1,7 @@
 #pragma once
 
 #include <functional>
-#include "entity_id.h"
+#include "entity_id.hpp"
 
 namespace std
 {

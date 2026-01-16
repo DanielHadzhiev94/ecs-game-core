@@ -1,7 +1,7 @@
-#include "movement_system.h"
-#include "../components/position.h"
-#include "../components/velocity.h"
-#include "view/view.h"
+#include "movement_system.hpp"
+#include "../components/position.hpp"
+#include "../components/velocity.hpp"
+#include "view/view.hpp"
 
 void MovementSystem::fixed_update(Registry &registry, const float fixed_dt) {
     auto view = View<Position, Velocity>(registry);

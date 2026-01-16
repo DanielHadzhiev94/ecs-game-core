@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../../core/entity/entity_id.h"
-#include "../../core/registry/registry.h"
+#include "../../core/entity/entity_id.hpp"
+#include "../../core/registry/registry.hpp"
 
 enum class CharacterType {
     Player,

@@ -1,4 +1,4 @@
-#include "game.h"
+#include "game.hpp"
 
 void Game::update(const float dt) {
     world.update(dt);

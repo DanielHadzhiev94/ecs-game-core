@@ -1,32 +1,32 @@
 add_library(ecs_core
-        core/entity/entity_id.h
-        core/entity/entity_manager.h
+        core/entity/entity_id.hpp
+        core/entity/entity_manager.hpp
         core/entity/entity_manager.cpp
-        core/registry/registry.h
+        core/registry/registry.hpp
         core/registry/registry.cpp
-        core/storage/component_storage.h
-        core/storage/storage_manager.h
+        core/storage/component_storage.hpp
+        core/storage/storage_manager.hpp
         core/storage/storage_manager.cpp
-        core/view/view.h
-        core/view/view_iterator.h
-        game/systems/movement_system.h
-        game/components/position.h
-        game/components/velocity.h
+        core/view/view.hpp
+        core/view/view_iterator.hpp
+        game/systems/movement_system.hpp
+        game/components/position.hpp
+        game/components/velocity.hpp
         game/systems/movements_system.cpp
-        game/world/world.h
-        game/game.h
+        game/world/world.hpp
+        game/game.hpp
         game/world/world.cpp
         game/game.cpp
-        game/spawn/entity_factory.h
+        game/spawn/entity_factory.hpp
         game/spawn/entity_factory.cpp
-        core/entity/entity_id_hash.h
-        game/systems/lifetime_system.h
+        core/entity/entity_id_hash.hpp
+        game/systems/lifetime_system.hpp
         game/systems/lifetime_system.cpp
-        game/components/health.h
-        core/time/Clock.h
+        game/components/health.hpp
+        core/time/Clock.hpp
         core/time/Clock.cpp
-        core/math/vec2.h
-        game/systems/render_system.h
+        core/math/vec2.hpp
+        game/systems/render_system.hpp
         game/systems/render_system.cpp
 )
 

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "view_iterator.h"
-#include "../registry/registry.h"
+#include "view_iterator.hpp"
+#include "../registry/registry.hpp"
 
 template<typename... Ts>
 class View {

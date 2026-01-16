@@ -1,4 +1,4 @@
-#include "registry/registry.h"
+#include "registry/registry.hpp"
 
 class RenderSystem {
 public:

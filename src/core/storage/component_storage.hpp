@@ -1,6 +1,6 @@
 #pragma once
 #include <unordered_map>
-#include "../entity/entity_id.h"
+#include "../entity/entity_id.hpp"
 
 struct IComponentStorage {
     virtual ~IComponentStorage() = default;

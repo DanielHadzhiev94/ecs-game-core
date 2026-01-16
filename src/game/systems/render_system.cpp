@@ -1,7 +1,7 @@
-#include "render_system.h"
+#include "render_system.hpp"
 
-#include "../components/position.h"
-#include "view/view.h"
+#include "../components/position.hpp"
+#include "view/view.hpp"
 
 void RenderSystem::render(Registry &registry, const float alpha) {
     auto view = View<Position>(registry);
