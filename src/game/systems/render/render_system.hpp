@@ -1,7 +1,4 @@
-#pragma once
-
-#include "registry/registry.h"
-#include "camera_system.h"
+#include "registry/registry.hpp"
 
 class RenderSystem {
 public:

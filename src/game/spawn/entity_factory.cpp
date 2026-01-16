@@ -1,7 +1,7 @@
-#include "entity_factory.h"
+#include "entity_factory.hpp"
 
-#include "../components/position.h"
-#include "../components/velocity.h"
+#include "../components/position.hpp"
+#include "../components/velocity.hpp"
 
 EntityFactory::EntityFactory(Registry &registry)
     : registry(registry) {

@@ -1,6 +1,6 @@
-#include "lifetime_System.h"
-#include "../components/health.h"
-#include "view/view.h"
+#include "../lifetime_system.hpp"
+#include "../../components/health.hpp"
+#include "view/view.hpp"
 
 struct Health;
 

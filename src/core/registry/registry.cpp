@@ -1,6 +1,6 @@
-#include "registry.h"
+#include "registry.hpp"
 
-#include "entity/entity_manager.h"
+#include "entity/entity_manager.hpp"
 
 Registry::Registry(EntityManager &entity_manager, StorageManager &storage_manager)
     : entity_manager(entity_manager), storage_manager(storage_manager) {
