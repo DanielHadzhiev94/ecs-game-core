@@ -23,6 +23,8 @@ add_library(ecs_core
         game/systems/lifetime_system.h
         game/systems/lifetime_system.cpp
         game/components/health.h
+        core/time/Clock.h
+        core/time/Clock.cpp
 )
 
 target_include_directories(ecs_core
