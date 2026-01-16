@@ -1,6 +1,6 @@
 #pragma once
 
-#include "world.h"
+#include "world/world.h"
 #include "time/Clock.h"
 
 enum class GameState {
