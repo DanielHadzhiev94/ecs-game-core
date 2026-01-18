@@ -5,8 +5,6 @@
 #include "../systems/camera_system.hpp"
 #include "../systems/render/render_system.hpp"
 #include "../../core/registry/registry.hpp"
-#include "../components/camera.hpp"
-
 
 class World {
 public:
@@ -14,7 +12,6 @@ public:
 
 private:
     Registry registry;
-    Camera camera;
 
     RenderSystem render_system;
     CameraSystem camera_system;

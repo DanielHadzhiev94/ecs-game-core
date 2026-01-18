@@ -12,8 +12,6 @@ void MovementSystem::fixed_update(Registry &registry, const float fixed_dt) {
 
         // For interpolation
         transform.previous = transform.current;
-
-        transform.current.x += velocity.value * fixed_dt;
-        transform.current.y += velocity.value * fixed_dt;
+        transform.current += velocity.current * fixed_dt;
     }
 }
