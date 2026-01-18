@@ -9,7 +9,6 @@ enum class GameState {
     Stopped
 };
 
-constexpr float FIXED_DT = 1.0F / 60.0F;
 constexpr float MAX_FRAME_TIME = 0.25F;
 
 class Game {

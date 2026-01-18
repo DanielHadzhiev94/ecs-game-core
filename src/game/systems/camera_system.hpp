@@ -1,9 +1,9 @@
 #pragma once
 
-#include "registry/registry.h"
+#include "registry/registry.hpp"
 #include "../components/camera.hpp"
 
 class CameraSystem {
 public:
-    static void fixed_update(Registry &registry, Camera &camera);
+    void fixed_update(Registry &registry, Camera &camera);
 };

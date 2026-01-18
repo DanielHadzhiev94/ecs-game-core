@@ -4,5 +4,5 @@
 
 class LifetimeSystem {
 public:
-    static void fixed_update(Registry &registry, float fixed_dt);
+    void fixed_update(Registry &registry, float fixed_dt);
 };

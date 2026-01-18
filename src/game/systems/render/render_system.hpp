@@ -1,6 +1,8 @@
 #pragma once
 
 #include "registry/registry.hpp"
+#include "../../components/camera.hpp"
+
 
 class RenderSystem {
 public:
