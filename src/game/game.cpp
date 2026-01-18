@@ -2,8 +2,9 @@
 
 #include "game.hpp"
 
-
-void Game::update(const float dt) {
+Game::Game()
+    : registry(entity_manager, storage_manager)
+      , world(registry, renderer) {
 }
 
 bool Game::is_running() const {

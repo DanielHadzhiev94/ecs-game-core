@@ -8,6 +8,8 @@
 
 class World {
 public:
+    explicit World(Registry &registry, IRenderer &renderer);
+
     void tick(float dt);
 
 private:

@@ -2,6 +2,10 @@
 
 constexpr float FIXED_DT = 1.0f / 60.0f;
 
+World::World(Registry &registry, IRenderer &renderer)
+    : registry(registry), render_system(renderer) {
+}
+
 void World::tick(float dt) {
     accumulator += dt;
 

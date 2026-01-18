@@ -28,10 +28,10 @@ struct Vec2 {
         return *this;
     }
 
-    static Vec2 lerp(const Vec2 &a, const Vec2 &b, float t) {
+    static Vec2 lerp(const Vec2 &previous, const Vec2 &current, float alpha) {
         return {
-            a.x + (b.x - a.x) * t,
-            a.y + (b.y - a.y) * t
+            previous.x + (current.x - previous.x) * alpha,
+            previous.y + (current.y - previous.y) * alpha
         };
     }
 };
