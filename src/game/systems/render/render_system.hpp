@@ -1,8 +1,14 @@
 #pragma once
 
+#include "IRenderer.hpp"
 #include "registry/registry.hpp"
 
 class RenderSystem {
 public:
-    static void render(Registry &registry, const Camera &camera, float alpha);
+    explicit RenderSystem(IRenderer &renderer);
+
+    void render(Registry &registry, float alpha);
+
+private:
+    IRenderer &renderer;
 };

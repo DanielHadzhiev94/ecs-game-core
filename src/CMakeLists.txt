@@ -31,6 +31,9 @@ add_library(ecs_core
         game/systems/camera_system.hpp
         game/systems/camera_system.cpp
         game/components/camera.hpp
+        game/commands/render_command.hpp
+        game/systems/render/IRenderer.hpp
+        game/DummyRenderer.hpp
 )
 
 target_include_directories(ecs_core

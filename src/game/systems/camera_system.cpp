@@ -1,14 +1,17 @@
 #include "camera_system.hpp"
 
-#include "../components/position.h"
-#include "view/view.h"
+#include "../components/camera.hpp"
+#include "../components/velocity.hpp"
+#include "view/view.hpp"
 
-void CameraSystem::fixed_update(Registry &registry, Camera &camera) {
-    auto view = View<Position>(registry);
+void CameraSystem::fixed_update(Registry &registry, const float fixed_dt) {
+    auto view = View<Camera, Velocity>(registry);
 
-    auto entity = *view.begin();
-    const Position &target = *registry.get<Position>(entity);
+    for (auto entity: view) {
+        auto &camera = *registry.get<Camera>(entity);
+        auto &velocity = *registry.get<Velocity>(entity);
 
-    camera.previous = camera.current;
-    camera.current = target.current;
+        camera.previous = camera.current;
+        camera.current += velocity.current * fixed_dt;
+    }
 }

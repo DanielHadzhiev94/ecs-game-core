@@ -1,5 +1,6 @@
 #pragma once
 
+#include "DummyRenderer.hpp"
 #include "world/world.hpp"
 #include "time/Clock.hpp"
 
@@ -9,26 +10,30 @@ enum class GameState {
     Stopped
 };
 
-constexpr float FIXED_DT = 1.0F / 60.0F;
 constexpr float MAX_FRAME_TIME = 0.25F;
 
 class Game {
 public:
-    Game() = default;
-
-    void update(float dt);
+    Game();
 
     void start();
-
     void stop();
-
     bool is_running() const;
 
 private:
+    // ECS infrastructure (ownership)
+    EntityManager entity_manager;
+    StorageManager storage_manager;
+    Registry registry;
+
+    // Rendering backend (ownership)
+    DummyRenderer renderer;
+
+    // World (orchestration)
     World world;
+
     Clock clock;
     GameState state = GameState::Idle;
-    float accumulator = 0.0F;
 
     void run();
 };

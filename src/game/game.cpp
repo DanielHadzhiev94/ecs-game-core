@@ -1,7 +1,10 @@
+#include <algorithm>
+
 #include "game.hpp"
 
-void Game::update(const float dt) {
-    world.update(dt);
+Game::Game()
+    : registry(entity_manager, storage_manager)
+      , world(registry, renderer) {
 }
 
 bool Game::is_running() const {
@@ -27,16 +30,6 @@ void Game::run() {
         auto frameTime = clock.restart();
         frameTime = std::min(frameTime, MAX_FRAME_TIME);
 
-        accumulator += frameTime;
-
-        while (accumulator >= FIXED_DT) {
-            world.fixed_update(FIXED_DT);
-            accumulator -= FIXED_DT;
-        }
-
-        const float alpha = accumulator / FIXED_DT;
-
-        world.update(frameTime);
-        world.render(alpha);
+        world.tick(frameTime);
     }
 }

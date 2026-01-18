@@ -1,7 +1,6 @@
 #pragma once
 
 #include <unordered_set>
-#include <tuple>
 
 #include "entity/entity_id.hpp"
 #include "entity/entity_id_hash.hpp"
