@@ -26,8 +26,8 @@ add_library(ecs_core
         core/time/Clock.hpp
         core/time/Clock.cpp
         core/math/vec2.hpp
-        game/systems/render_system.hpp
-        game/systems/render_system.cpp
+        game/systems/render/render_system.hpp
+        game/systems/render/render_system.cpp
         game/systems/camera_system.hpp
         game/systems/camera_system.cpp
         game/components/camera.hpp

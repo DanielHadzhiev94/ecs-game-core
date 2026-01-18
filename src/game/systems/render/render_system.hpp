@@ -1,3 +1,5 @@
+#pragma once
+
 #include "registry/registry.hpp"
 
 class RenderSystem {
