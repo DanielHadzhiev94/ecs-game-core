@@ -2,7 +2,9 @@
 
 #include "ecs/registry/registry.hpp"
 
-class CameraSystem {
-public:
-    void fixed_update(engine::ecs::Registry &registry, float fixed_dt);
-};
+namespace engine::systems {
+    class CameraSystem {
+    public:
+        void fixed_update(engine::ecs::Registry &registry, float fixed_dt);
+    };
+}

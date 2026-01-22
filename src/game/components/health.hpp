@@ -1,6 +1,8 @@
 #pragma once
 #include <cstdint>
 
-struct Health {
-    std::int32_t value;
-};
+namespace engine::components {
+    struct Health {
+        std::int32_t value;
+    };
+}

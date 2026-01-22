@@ -32,7 +32,7 @@ private:
     engine::render::DummyRenderer renderer;
 
     // World (orchestration)
-    World world;
+    engine::world::World world;
 
     engine::time::Clock clock;
     GameState state = GameState::Idle;

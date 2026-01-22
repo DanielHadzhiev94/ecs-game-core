@@ -6,25 +6,27 @@
 #include "../systems/render/render_system.hpp"
 #include "ecs/registry/registry.hpp"
 
-class World {
-public:
-    explicit World(engine::ecs::Registry &registry, engine::render::IRenderer &renderer);
+namespace engine::world {
+    class World {
+    public:
+        explicit World(ecs::Registry &registry, render::IRenderer &renderer);
 
-    void tick(float dt);
+        void tick(float dt);
 
-private:
-    engine::ecs::Registry registry;
+    private:
+        ecs::Registry registry;
 
-    RenderSystem render_system;
-    CameraSystem camera_system;
-    MovementSystem movement_system;
-    LifetimeSystem lifetime_system;
+        systems::RenderSystem render_system;
+        systems::CameraSystem camera_system;
+        systems::MovementSystem movement_system;
+        systems::LifetimeSystem lifetime_system;
 
-    float accumulator = 0.0f;
+        float accumulator = 0.0f;
 
-    void fixed_update(float fixed_dt);
+        void fixed_update(float fixed_dt);
 
-    void update(float dt);
+        void update(float dt);
 
-    void render(float alpha);
-};
+        void render(float alpha);
+    };
+}

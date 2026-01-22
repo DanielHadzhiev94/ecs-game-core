@@ -3,12 +3,14 @@
 #include "../../../core/render/IRenderer.hpp"
 #include "ecs/registry/registry.hpp"
 
-class RenderSystem {
-public:
-    explicit RenderSystem(engine::render::IRenderer &renderer);
+namespace engine::systems {
+    class RenderSystem {
+    public:
+        explicit RenderSystem(render::IRenderer &renderer);
 
-    void render(engine::ecs::Registry &registry, float alpha);
+        void render(ecs::Registry &registry, float alpha);
 
-private:
-    engine::render::IRenderer &renderer;
-};
+    private:
+        render::IRenderer &renderer;
+    };
+}

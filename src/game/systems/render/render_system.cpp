@@ -4,35 +4,36 @@
 #include "ecs/registry/registry.hpp"
 #include "ecs/view/view.hpp"
 
-struct Position;
+namespace engine::systems {
 
-RenderSystem::RenderSystem(engine::render::IRenderer &renderer)
-    : renderer(renderer) {
-}
-
-void RenderSystem::render(engine::ecs::Registry &registry, const float alpha) {
-    // Take camera
-    Camera camera;
-    auto cam_view = engine::ecs::View<Camera>(registry);
-
-    bool has_camera = false;
-    for (auto e: cam_view) {
-        camera = *registry.get<Camera>(e);
-        has_camera = true;
-        break;
+    RenderSystem::RenderSystem(render::IRenderer &renderer)
+        : renderer(renderer) {
     }
 
-    if (!has_camera)
-        return;
+    void RenderSystem::render(ecs::Registry &registry, const float alpha) {
+        // Take camera
+        components::Camera camera;
+        auto cam_view = ecs::View<components::Camera>(registry);
 
-    engine::math::Vec2 cam_pos = engine::math::Vec2::lerp(camera.previous, camera.current, alpha);
-    auto view = engine::ecs::View<Position>(registry);
-    for (auto e: view) {
-        const auto &pos = *registry.get<Position>(e);
+        bool has_camera = false;
+        for (auto e: cam_view) {
+            camera = *registry.get<components::Camera>(e);
+            has_camera = true;
+            break;
+        }
 
-        engine::math::Vec2 world_pos = engine::math::Vec2::lerp(pos.previous, pos.current, alpha);
-        engine::math::Vec2 screen_pos = world_pos - cam_pos;
+        if (!has_camera)
+            return;
 
-        renderer.draw({screen_pos});
+        math::Vec2 cam_pos = math::Vec2::lerp(camera.previous, camera.current, alpha);
+        auto view = ecs::View<components::Position>(registry);
+        for (auto e: view) {
+            const auto &pos = *registry.get<components::Position>(e);
+
+            math::Vec2 world_pos = math::Vec2::lerp(pos.previous, pos.current, alpha);
+            math::Vec2 screen_pos = world_pos - cam_pos;
+
+            renderer.draw({screen_pos});
+        }
     }
 }
