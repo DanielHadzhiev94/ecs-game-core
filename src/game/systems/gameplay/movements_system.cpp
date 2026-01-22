@@ -1,10 +1,10 @@
 #include "movement_system.hpp"
 #include "../../components/position.hpp"
 #include "../../components/velocity.hpp"
-#include "view/view.hpp"
+#include "ecs/view/view.hpp"
 
-void MovementSystem::fixed_update(Registry &registry, const float fixed_dt) {
-    auto view = View<Position, Velocity>(registry);
+void MovementSystem::fixed_update(engine::ecs::Registry &registry, const float fixed_dt) {
+    auto view = engine::ecs::View<Position, Velocity>(registry);
 
     for (auto entity: view) {
         auto &transform = *registry.get<Position>(entity);

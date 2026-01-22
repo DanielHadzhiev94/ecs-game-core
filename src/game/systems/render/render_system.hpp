@@ -1,14 +1,14 @@
 #pragma once
 
-#include "IRenderer.hpp"
-#include "registry/registry.hpp"
+#include "../../../core/render/IRenderer.hpp"
+#include "ecs/registry/registry.hpp"
 
 class RenderSystem {
 public:
-    explicit RenderSystem(IRenderer &renderer);
+    explicit RenderSystem(engine::render::IRenderer &renderer);
 
-    void render(Registry &registry, float alpha);
+    void render(engine::ecs::Registry &registry, float alpha);
 
 private:
-    IRenderer &renderer;
+    engine::render::IRenderer &renderer;
 };

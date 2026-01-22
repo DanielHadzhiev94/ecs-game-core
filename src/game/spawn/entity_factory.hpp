@@ -1,7 +1,6 @@
 #pragma once
+#include "ecs/registry/registry.hpp"
 
-#include "../../core/entity/entity_id.hpp"
-#include "../../core/registry/registry.hpp"
 
 enum class CharacterType {
     Player,
@@ -10,14 +9,14 @@ enum class CharacterType {
 
 class EntityFactory {
 public:
-    explicit EntityFactory(Registry &registry);
+    explicit EntityFactory(engine::ecs::Registry &registry);
 
-    EntityId create_player(float x, float y);
+    engine::ecs::EntityId create_player(float x, float y);
 
-    EntityId create_enemy(float x, float y);
+    engine::ecs::EntityId create_enemy(float x, float y);
 
 private:
-    Registry &registry;
+    engine::ecs::Registry &registry;
 
-    void init_character(EntityId, float x, float y, CharacterType character_type);
+    void init_character(engine::ecs::EntityId, float x, float y, CharacterType character_type);
 };

@@ -1,11 +1,12 @@
 #include "../gameplay/lifetime_system.hpp"
 #include "../../components/health.hpp"
-#include "view/view.hpp"
+#include "ecs/view/view.hpp"
+
 
 struct Health;
 
-void LifetimeSystem::fixed_update(Registry &registry, const float fixed_dt) {
-    auto view = View<Health>(registry);
+void LifetimeSystem::fixed_update(engine::ecs::Registry &registry, const float fixed_dt) {
+    auto view = engine::ecs::View<Health>(registry);
 
     // Decrease health just for test
     for (auto entity: view) {

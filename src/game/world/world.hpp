@@ -2,18 +2,18 @@
 
 #include "../systems/gameplay/lifetime_system.hpp"
 #include "../systems/gameplay/movement_system.hpp"
-#include "../systems/camera_system.hpp"
+#include "../systems/camera/camera_system.hpp"
 #include "../systems/render/render_system.hpp"
-#include "../../core/registry/registry.hpp"
+#include "ecs/registry/registry.hpp"
 
 class World {
 public:
-    explicit World(Registry &registry, IRenderer &renderer);
+    explicit World(engine::ecs::Registry &registry, engine::render::IRenderer &renderer);
 
     void tick(float dt);
 
 private:
-    Registry registry;
+    engine::ecs::Registry registry;
 
     RenderSystem render_system;
     CameraSystem camera_system;

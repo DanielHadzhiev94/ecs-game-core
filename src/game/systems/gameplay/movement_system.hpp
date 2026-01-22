@@ -1,7 +1,7 @@
 #pragma once
-#include "registry/registry.hpp"
+#include "ecs/registry/registry.hpp"
 
 class MovementSystem {
 public:
-    void fixed_update(Registry &registry, float fixed_dt);
+    void fixed_update(engine::ecs::Registry &registry, float fixed_dt);
 };

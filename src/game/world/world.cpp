@@ -2,7 +2,7 @@
 
 constexpr float FIXED_DT = 1.0f / 60.0f;
 
-World::World(Registry &registry, IRenderer &renderer)
+World::World(engine::ecs::Registry &registry, engine::render::IRenderer &renderer)
     : registry(registry), render_system(renderer) {
 }
 

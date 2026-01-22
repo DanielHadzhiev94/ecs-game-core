@@ -2,5 +2,5 @@
 #include "math/vec2.hpp"
 
 struct RenderCommand {
-    Vec2 position;
+    engine::math::Vec2 position;
 };

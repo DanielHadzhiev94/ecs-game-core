@@ -2,6 +2,6 @@
 #include "math/vec2.hpp"
 
 struct Position {
-    Vec2 current;
-    Vec2 previous;
+    engine::math::Vec2 current;
+    engine::math::Vec2 previous;
 };
