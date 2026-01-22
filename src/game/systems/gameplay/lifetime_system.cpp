@@ -1,21 +1,21 @@
 #include "../gameplay/lifetime_system.hpp"
-#include "../../components/health.hpp"
-#include "view/view.hpp"
+#include "../game/components/health.hpp"
+#include "ecs/view/view.hpp"
 
-struct Health;
+namespace engine::game::systems {
+    void LifetimeSystem::fixed_update(ecs::Registry &registry, const float fixed_dt) {
+        auto view = ecs::View<components::Health>(registry);
 
-void LifetimeSystem::fixed_update(Registry &registry, const float fixed_dt) {
-    auto view = View<Health>(registry);
+        // Decrease health just for test
+        for (auto entity: view) {
+            auto health = registry.get<components::Health>(entity);
 
-    // Decrease health just for test
-    for (auto entity: view) {
-        auto health = registry.get<Health>(entity);
+            health->value -= static_cast<std::int32_t>(fixed_dt);
 
-        health->value -= static_cast<std::int32_t>(fixed_dt);
-
-        if (health->value <= 0) {
-            health->value = 0;
-            registry.schedule_destruction(entity);
+            if (health->value <= 0) {
+                health->value = 0;
+                registry.schedule_destruction(entity);
+            }
         }
     }
 }

@@ -1,14 +1,14 @@
 add_library(ecs_core
-        core/entity/entity_id.hpp
-        core/entity/entity_manager.hpp
-        core/entity/entity_manager.cpp
-        core/registry/registry.hpp
-        core/registry/registry.cpp
-        core/storage/component_storage.hpp
-        core/storage/storage_manager.hpp
-        core/storage/storage_manager.cpp
-        core/view/view.hpp
-        core/view/view_iterator.hpp
+        core/ecs/entity/entity_id.hpp
+        core/ecs/entity/entity_manager.hpp
+        core/ecs/entity/entity_manager.cpp
+        core/ecs/registry/registry.hpp
+        core/ecs/registry/registry.cpp
+        core/ecs/storage/component_storage.hpp
+        core/ecs/storage/storage_manager.hpp
+        core/ecs/storage/storage_manager.cpp
+        core/ecs/view/view.hpp
+        core/ecs/view/view_iterator.hpp
         game/systems/gameplay/movement_system.hpp
         game/components/position.hpp
         game/components/velocity.hpp
@@ -19,21 +19,21 @@ add_library(ecs_core
         game/game.cpp
         game/spawn/entity_factory.hpp
         game/spawn/entity_factory.cpp
-        core/entity/entity_id_hash.hpp
+        core/ecs/entity/entity_id_hash.hpp
         game/systems/gameplay/lifetime_system.hpp
         game/systems/gameplay/lifetime_system.cpp
         game/components/health.hpp
-        core/time/Clock.hpp
+        core/time/clock.hpp
         core/time/Clock.cpp
         core/math/vec2.hpp
         game/systems/render/render_system.hpp
         game/systems/render/render_system.cpp
-        game/systems/camera_system.hpp
-        game/systems/camera_system.cpp
+        game/systems/camera/camera_system.hpp
+        game/systems/camera/camera_system.cpp
         game/components/camera.hpp
         game/commands/render_command.hpp
-        game/systems/render/IRenderer.hpp
-        game/DummyRenderer.hpp
+        core/render/IRenderer.hpp
+        core/render/DummyRenderer.hpp
 )
 
 target_include_directories(ecs_core

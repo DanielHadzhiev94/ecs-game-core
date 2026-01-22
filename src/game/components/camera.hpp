@@ -2,7 +2,9 @@
 
 #include "math/vec2.hpp"
 
-struct Camera {
-    Vec2 previous;
-    Vec2 current;
-};
+namespace engine::game::components {
+    struct Camera {
+        math::Vec2 previous;
+        math::Vec2 current;
+    };
+}

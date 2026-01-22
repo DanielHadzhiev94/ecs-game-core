@@ -1,7 +1,0 @@
-#include "storage/storage_manager.hpp"
-
-void StorageManager::destroy_entity(const EntityId entity) {
-    for (auto &[_, storage]: components) {
-        storage.get()->destroy(entity);
-    }
-}

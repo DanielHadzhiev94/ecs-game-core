@@ -1,7 +1,9 @@
 #pragma once
-#include "registry/registry.hpp"
+#include "ecs/registry/registry.hpp"
 
-class MovementSystem {
-public:
-    void fixed_update(Registry &registry, float fixed_dt);
-};
+namespace engine::game::systems {
+    class MovementSystem {
+    public:
+        void fixed_update(ecs::Registry &registry, float fixed_dt);
+    };
+}

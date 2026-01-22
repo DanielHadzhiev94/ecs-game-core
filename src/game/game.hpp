@@ -1,8 +1,8 @@
 #pragma once
 
-#include "DummyRenderer.hpp"
+#include "../core/render/DummyRenderer.hpp"
 #include "world/world.hpp"
-#include "time/Clock.hpp"
+#include "time/clock.hpp"
 
 enum class GameState {
     Idle,
@@ -17,22 +17,24 @@ public:
     Game();
 
     void start();
+
     void stop();
+
     bool is_running() const;
 
 private:
     // ECS infrastructure (ownership)
-    EntityManager entity_manager;
-    StorageManager storage_manager;
-    Registry registry;
+    engine::ecs::EntityManager entity_manager;
+    engine::ecs::StorageManager storage_manager;
+    engine::ecs::Registry registry;
 
     // Rendering backend (ownership)
-    DummyRenderer renderer;
+    engine::render::DummyRenderer renderer;
 
     // World (orchestration)
-    World world;
+    engine::game::World world;
 
-    Clock clock;
+    engine::time::Clock clock;
     GameState state = GameState::Idle;
 
     void run();
