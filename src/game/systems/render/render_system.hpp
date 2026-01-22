@@ -3,7 +3,7 @@
 #include "../../../core/render/IRenderer.hpp"
 #include "ecs/registry/registry.hpp"
 
-namespace engine::systems {
+namespace engine::game::systems {
     class RenderSystem {
     public:
         explicit RenderSystem(render::IRenderer &renderer);

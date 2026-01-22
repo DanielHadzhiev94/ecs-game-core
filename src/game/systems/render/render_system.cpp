@@ -4,7 +4,7 @@
 #include "ecs/registry/registry.hpp"
 #include "ecs/view/view.hpp"
 
-namespace engine::systems {
+namespace engine::game::systems {
 
     RenderSystem::RenderSystem(render::IRenderer &renderer)
         : renderer(renderer) {

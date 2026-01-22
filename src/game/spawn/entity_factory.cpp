@@ -3,7 +3,7 @@
 #include "../components/position.hpp"
 #include "../components/velocity.hpp"
 
-namespace engine::spawn {
+namespace engine::game::spawn {
     EntityFactory::EntityFactory(ecs::Registry &registry)
         : registry(registry) {
     }

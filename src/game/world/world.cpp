@@ -1,9 +1,9 @@
 #include "world.hpp"
 
-namespace engine::world {
+namespace engine::game {
     constexpr float FIXED_DT = 1.0f / 60.0f;
 
-    World::World(engine::ecs::Registry &registry, engine::render::IRenderer &renderer)
+    World::World(ecs::Registry &registry, render::IRenderer &renderer)
         : registry(registry), render_system(renderer) {
     }
 

@@ -3,7 +3,7 @@
 #include "../../components/velocity.hpp"
 #include "ecs/view/view.hpp"
 
-namespace engine::systems {
+namespace engine::game::systems {
     void MovementSystem::fixed_update(ecs::Registry &registry, const float fixed_dt) {
         auto view = ecs::View<components::Position, components::Velocity>(registry);
 

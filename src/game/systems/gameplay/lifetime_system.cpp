@@ -2,7 +2,7 @@
 #include "../game/components/health.hpp"
 #include "ecs/view/view.hpp"
 
-namespace engine::systems {
+namespace engine::game::systems {
     void LifetimeSystem::fixed_update(ecs::Registry &registry, const float fixed_dt) {
         auto view = ecs::View<components::Health>(registry);
 

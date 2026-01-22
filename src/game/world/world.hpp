@@ -6,7 +6,7 @@
 #include "../systems/render/render_system.hpp"
 #include "ecs/registry/registry.hpp"
 
-namespace engine::world {
+namespace engine::game {
     class World {
     public:
         explicit World(ecs::Registry &registry, render::IRenderer &renderer);

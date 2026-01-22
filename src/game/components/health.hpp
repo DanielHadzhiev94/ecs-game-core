@@ -1,7 +1,7 @@
 #pragma once
 #include <cstdint>
 
-namespace engine::components {
+namespace engine::game::components {
     struct Health {
         std::int32_t value;
     };

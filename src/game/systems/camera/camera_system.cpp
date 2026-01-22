@@ -4,7 +4,7 @@
 #include "../../components/velocity.hpp"
 #include "ecs/view/view.hpp"
 
-namespace engine::systems {
+namespace engine::game::systems {
     void CameraSystem::fixed_update(engine::ecs::Registry &registry, const float fixed_dt) {
         auto view = ecs::View<components::Camera, components::Velocity>(registry);
 
