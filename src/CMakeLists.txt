@@ -40,6 +40,8 @@ add_library(ecs_core
         input/input_context.hpp
         input/dummy_keyboard.hpp
         input/dummy_keyboard.cpp
+        input/input_system.hpp
+        input/input_system.cpp
 )
 
 target_include_directories(ecs_core
