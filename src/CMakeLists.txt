@@ -42,6 +42,9 @@ add_library(ecs_core
         input/dummy_keyboard.cpp
         input/input_system.hpp
         input/input_system.cpp
+        game/systems/gameplay/player_control_system.hpp
+        game/systems/gameplay/player_control_system.cpp
+        game/components/player_tag.hpp
 )
 
 target_include_directories(ecs_core

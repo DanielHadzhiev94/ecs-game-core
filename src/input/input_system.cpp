@@ -6,10 +6,8 @@ namespace engine::input {
     }
 
     void InputSystem::update() {
-        // 1. Reset input state for the current frame
         state_ = InputState{};
 
-        // 2. Poll all input devices
         for (const auto &device: devices_) {
             device->poll(state_);
         }
