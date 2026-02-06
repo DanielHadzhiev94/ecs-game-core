@@ -34,6 +34,17 @@ add_library(ecs_core
         game/commands/render_command.hpp
         core/render/IRenderer.hpp
         core/render/DummyRenderer.hpp
+        input/input_action.hpp
+        input/input_state.hpp
+        input/input_device.hpp
+        input/input_context.hpp
+        input/dummy_keyboard.hpp
+        input/dummy_keyboard.cpp
+        input/input_system.hpp
+        input/input_system.cpp
+        game/systems/gameplay/player_control_system.hpp
+        game/systems/gameplay/player_control_system.cpp
+        game/components/player_tag.hpp
 )
 
 target_include_directories(ecs_core
