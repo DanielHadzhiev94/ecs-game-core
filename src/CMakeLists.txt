@@ -15,7 +15,10 @@ add_library(ecs_core
         core/time/clock.hpp
         core/time/Clock.cpp
         core/math/vec2.hpp
-        core/manager/system_manager.hpp
+        core/system/interface/i_system_update.hpp
+        core/system/interface/i_system_fixed_update.hpp
+        core/system/system_manager.hpp
+        core/system/system_manager.cpp
         game/systems/gameplay/lifetime_system.hpp
         game/systems/gameplay/lifetime_system.cpp
         game/components/health.hpp
@@ -35,14 +38,14 @@ add_library(ecs_core
         game/systems/camera/camera_system.cpp
         game/components/camera.hpp
         game/commands/render_command.hpp
-        input/input_action.hpp
-        input/input_state.hpp
-        input/input_device.hpp
-        input/input_context.hpp
-        input/dummy_keyboard.hpp
-        input/dummy_keyboard.cpp
-        input/input_system.hpp
-        input/input_system.cpp
+        game/input/input_action.hpp
+        game/input/input_state.hpp
+        game/input/input_device.hpp
+        game/input/input_context.hpp
+        game/input/dummy_keyboard.hpp
+        game/input/dummy_keyboard.cpp
+        game/input/input_system.hpp
+        game/input/input_system.cpp
         game/systems/gameplay/player_control_system.hpp
         game/systems/gameplay/player_control_system.cpp
         game/components/player_tag.hpp
@@ -51,6 +54,7 @@ add_library(ecs_core
 
 target_include_directories(ecs_core
         PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/core
 
 )

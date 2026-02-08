@@ -1,21 +1,21 @@
 #include "system_manager.hpp"
 #include "ecs/registry/registry.hpp"
 
-namespace engine::core::manager
+namespace engine::core::system
 {
     SystemManager::~SystemManager() = default;
 
-    void SystemManager::register_system(std::unique_ptr<engine::game::systems::ISystemUpdate> system) noexcept
+    void SystemManager::register_system(std::unique_ptr<interface::ISystemUpdate> system) noexcept
     {
         update_systems_.push_back(std::move(system));
     }
 
-    void SystemManager::register_system(std::unique_ptr<engine::game::systems::ISystemFixedUpdate> system) noexcept
+    void SystemManager::register_system(std::unique_ptr<interface::ISystemFixedUpdate> system) noexcept
     {
         fixed_update_systems_.push_back(std::move(system));
     }
 
-    void SystemManager::update(engine::ecs::Registry &registry, float dt)
+    void SystemManager::update(ecs::Registry &registry, float dt) noexcept
     {
         for (auto &system : update_systems_)
         {
@@ -23,7 +23,7 @@ namespace engine::core::manager
         }
     }
 
-    void SystemManager::fixed_update(engine::ecs::Registry &registry, float fixed_dt)
+    void SystemManager::fixed_update(ecs::Registry &registry, float fixed_dt) noexcept
     {
         for (auto &system : fixed_update_systems_)
         {

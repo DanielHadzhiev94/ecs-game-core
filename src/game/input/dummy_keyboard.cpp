@@ -1,11 +1,14 @@
 #include "dummy_keyboard.hpp"
 
-namespace engine::input {
+namespace engine::game::input
+{
     DummyKeyboard::DummyKeyboard(const InputContext &context)
-        : context(context) {
+        : context(context)
+    {
     }
 
-    void DummyKeyboard::poll(InputState &state) {
+    void DummyKeyboard::poll(InputState &state)
+    {
         toggle = !toggle;
 
         state.set_pressed(InputAction::MoveLeft, toggle);

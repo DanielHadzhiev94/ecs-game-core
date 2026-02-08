@@ -2,7 +2,7 @@
 
 #include "ecs/registry/registry.hpp"
 
-namespace engine::game::systems
+namespace engine::core::system::interface
 {
     struct ISystemUpdate
     {

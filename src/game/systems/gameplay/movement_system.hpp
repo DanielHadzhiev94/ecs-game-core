@@ -1,11 +1,11 @@
 #pragma once
 
 #include "ecs/registry/registry.hpp"
-#include "../game/systems/interfaces/i_system_fixed_update.hpp"
+#include "system/interface/i_system_fixed_update.hpp"
 
-namespace engine::game::systems
+namespace engine::game::systems::gameplay
 {
-    class MovementSystem : public ISystemFixedUpdate
+    class MovementSystem : public engine::core::system::interface::ISystemFixedUpdate
     {
     public:
         void fixed_update(ecs::Registry &registry, float fixed_dt) override;

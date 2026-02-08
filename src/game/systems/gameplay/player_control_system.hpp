@@ -1,19 +1,19 @@
 #pragma once
 
-#include "../input/input_system.hpp"
+#include "game/input/input_system.hpp"
 #include "ecs/registry/registry.hpp"
-#include "../game/systems/interfaces/i_system_update.hpp"
+#include "system/interface/i_system_update.hpp"
 
-namespace engine::game::systems
+namespace engine::game::systems::gameplay
 {
-    class PlayerControlSystem : public ISystemUpdate
+    class PlayerControlSystem : public engine::core::system::interface::ISystemUpdate
     {
     public:
-        PlayerControlSystem(input::InputSystem &input_system);
+        PlayerControlSystem(game::input::InputSystem &input_system);
 
         void update(ecs::Registry &registry, float dt) override;
 
     private:
-        const input::InputSystem &input_system_;
+        const game::input::InputSystem &input_system_;
     };
 }

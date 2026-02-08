@@ -3,8 +3,10 @@
 #include "input_device.hpp"
 #include "input_context.hpp"
 
-namespace engine::input {
-    class DummyKeyboard final : public IInputDevice {
+namespace engine::game::input
+{
+    class DummyKeyboard final : public IInputDevice
+    {
     public:
         explicit DummyKeyboard(const InputContext &context);
 

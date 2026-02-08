@@ -1,11 +1,11 @@
 #pragma once
 
-#include "../game/systems/interfaces/i_system_fixed_update.hpp"
+#include "system/interface/i_system_fixed_update.hpp"
 #include "ecs/registry/registry.hpp"
 
-namespace engine::game::systems
+namespace engine::game::systems::gameplay
 {
-    class LifetimeSystem : public ISystemFixedUpdate
+    class LifetimeSystem : public engine::core::system::interface::ISystemFixedUpdate
     {
     public:
         void fixed_update(ecs::Registry &registry, float fixed_dt) override;

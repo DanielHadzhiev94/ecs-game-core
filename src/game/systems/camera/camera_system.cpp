@@ -1,14 +1,16 @@
 #include "camera_system.hpp"
-
-#include "../../components/camera.hpp"
-#include "../../components/velocity.hpp"
+#include "game/components/camera.hpp"
+#include "game/components/velocity.hpp"
 #include "ecs/view/view.hpp"
 
-namespace engine::game::systems {
-    void CameraSystem::fixed_update(engine::ecs::Registry &registry, const float fixed_dt) {
+namespace engine::game::systems::camera
+{
+    void CameraSystem::fixed_update(ecs::Registry &registry, const float fixed_dt)
+    {
         auto view = ecs::View<components::Camera, components::Velocity>(registry);
 
-        for (auto entity: view) {
+        for (auto entity : view)
+        {
             auto &camera = *registry.get<components::Camera>(entity);
             auto &velocity = *registry.get<components::Velocity>(entity);
 

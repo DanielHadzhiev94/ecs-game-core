@@ -5,8 +5,10 @@
 #include "input_device.hpp"
 #include "input_state.hpp"
 
-namespace engine::input {
-    class InputSystem {
+namespace engine::game::input
+{
+    class InputSystem
+    {
     public:
         void add_device(std::unique_ptr<IInputDevice> device);
 
@@ -16,6 +18,6 @@ namespace engine::input {
 
     private:
         InputState state_;
-        std::vector<std::unique_ptr<IInputDevice> > devices_;
+        std::vector<std::unique_ptr<IInputDevice>> devices_;
     };
 }

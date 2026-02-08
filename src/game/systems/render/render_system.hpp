@@ -1,16 +1,18 @@
 #pragma once
 
-#include "../../../core/render/IRenderer.hpp"
+#include "render/IRenderer.hpp"
 #include "ecs/registry/registry.hpp"
 
-namespace engine::game::systems {
-    class RenderSystem {
+namespace engine::game::systems::render
+{
+    class RenderSystem
+    {
     public:
-        explicit RenderSystem(render::IRenderer &renderer);
+        explicit RenderSystem(engine::render::IRenderer &renderer);
 
         void render(ecs::Registry &registry, float alpha);
 
     private:
-        render::IRenderer &renderer;
+        engine::render::IRenderer &renderer;
     };
 }
