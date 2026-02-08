@@ -45,6 +45,8 @@ add_library(ecs_core
         game/systems/gameplay/player_control_system.hpp
         game/systems/gameplay/player_control_system.cpp
         game/components/player_tag.hpp
+        core/manager/system_manager.hpp
+        game/systems/interfaces/ISystemUpdate.hpp
 )
 
 target_include_directories(ecs_core
