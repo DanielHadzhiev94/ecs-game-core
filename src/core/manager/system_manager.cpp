@@ -1,16 +1,16 @@
 #include "system_manager.hpp"
 #include "ecs/registry/registry.hpp"
-#include "../game/systems/interfaces/i_system_update.hpp"
-#include "../game/systems/interfaces/i_system_fixed_update.hpp"
 
 namespace engine::core::manager
 {
-    void SystemManager::register_system(std::unique_ptr<game::systems::ISystemUpdate> system)
+    SystemManager::~SystemManager() = default;
+
+    void SystemManager::register_system(std::unique_ptr<engine::game::systems::ISystemUpdate> system) noexcept
     {
         update_systems_.push_back(std::move(system));
     }
 
-    void SystemManager::register_system(std::unique_ptr<game::systems::ISystemFixedUpdate> system)
+    void SystemManager::register_system(std::unique_ptr<engine::game::systems::ISystemFixedUpdate> system) noexcept
     {
         fixed_update_systems_.push_back(std::move(system));
     }
