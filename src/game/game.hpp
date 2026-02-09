@@ -4,7 +4,8 @@
 #include "world/world.hpp"
 #include "time/clock.hpp"
 
-enum class GameState {
+enum class GameState
+{
     Idle,
     Running,
     Stopped
@@ -12,7 +13,8 @@ enum class GameState {
 
 constexpr float MAX_FRAME_TIME = 0.25F;
 
-class Game {
+class Game
+{
 public:
     Game();
 

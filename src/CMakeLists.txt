@@ -9,6 +9,20 @@ add_library(ecs_core
         core/ecs/storage/storage_manager.cpp
         core/ecs/view/view.hpp
         core/ecs/view/view_iterator.hpp
+        core/render/IRenderer.hpp
+        core/render/DummyRenderer.hpp
+        core/ecs/entity/entity_id_hash.hpp
+        core/time/clock.hpp
+        core/time/Clock.cpp
+        core/math/vec2.hpp
+        core/system/interface/i_system_update.hpp
+        core/system/interface/i_system_fixed_update.hpp
+        core/system/interface/i_system_render.hpp
+        core/system/system_manager.hpp
+        core/system/system_manager.cpp
+        game/systems/gameplay/lifetime_system.hpp
+        game/systems/gameplay/lifetime_system.cpp
+        game/components/health.hpp
         game/systems/gameplay/movement_system.hpp
         game/components/position.hpp
         game/components/velocity.hpp
@@ -19,36 +33,29 @@ add_library(ecs_core
         game/game.cpp
         game/spawn/entity_factory.hpp
         game/spawn/entity_factory.cpp
-        core/ecs/entity/entity_id_hash.hpp
-        game/systems/gameplay/lifetime_system.hpp
-        game/systems/gameplay/lifetime_system.cpp
-        game/components/health.hpp
-        core/time/clock.hpp
-        core/time/Clock.cpp
-        core/math/vec2.hpp
         game/systems/render/render_system.hpp
         game/systems/render/render_system.cpp
         game/systems/camera/camera_system.hpp
         game/systems/camera/camera_system.cpp
         game/components/camera.hpp
         game/commands/render_command.hpp
-        core/render/IRenderer.hpp
-        core/render/DummyRenderer.hpp
-        input/input_action.hpp
-        input/input_state.hpp
-        input/input_device.hpp
-        input/input_context.hpp
-        input/dummy_keyboard.hpp
-        input/dummy_keyboard.cpp
-        input/input_system.hpp
-        input/input_system.cpp
+        game/input/input_action.hpp
+        game/input/input_state.hpp
+        game/input/input_device.hpp
+        game/input/input_context.hpp
+        game/input/dummy_keyboard.hpp
+        game/input/dummy_keyboard.cpp
+        game/input/input_system.hpp
+        game/input/input_system.cpp
         game/systems/gameplay/player_control_system.hpp
         game/systems/gameplay/player_control_system.cpp
         game/components/player_tag.hpp
+
 )
 
 target_include_directories(ecs_core
         PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/core
 
 )

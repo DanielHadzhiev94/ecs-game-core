@@ -3,10 +3,12 @@
 #include <unordered_map>
 #include "input_action.hpp"
 
-namespace engine::input {
+namespace engine::game::input
+{
     using KeyCode = std::uint32_t;
 
-    class InputContext {
+    class InputContext
+    {
     public:
         void bind(InputAction action, KeyCode key_code);
 

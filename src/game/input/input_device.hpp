@@ -1,8 +1,10 @@
 #pragma once
 #include "input_state.hpp"
 
-namespace engine::input {
-    class IInputDevice {
+namespace engine::game::input
+{
+    class IInputDevice
+    {
     public:
         virtual ~IInputDevice() = default;
 
