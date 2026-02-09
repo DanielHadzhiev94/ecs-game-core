@@ -14,7 +14,7 @@ namespace engine::game
         void tick(float dt);
 
     private:
-        ecs::Registry registry;
+        ecs::Registry &registry;
 
         systems::render::RenderSystem render_system;
         core::system::SystemManager system_manager;

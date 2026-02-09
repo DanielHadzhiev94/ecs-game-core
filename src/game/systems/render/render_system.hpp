@@ -1,16 +1,21 @@
 #pragma once
 
 #include "render/IRenderer.hpp"
-#include "ecs/registry/registry.hpp"
+#include "core/system/interface/i_system_render.hpp"
+
+namespace engine::ecs
+{
+    class Registry;
+}
 
 namespace engine::game::systems::render
 {
-    class RenderSystem
+    class RenderSystem : public engine::core::system::interface::ISystemRender
     {
     public:
         explicit RenderSystem(engine::render::IRenderer &renderer);
 
-        void render(ecs::Registry &registry, float alpha);
+        void render(ecs::Registry &registry, float alpha) override;
 
     private:
         engine::render::IRenderer &renderer;

@@ -17,6 +17,7 @@ add_library(ecs_core
         core/math/vec2.hpp
         core/system/interface/i_system_update.hpp
         core/system/interface/i_system_fixed_update.hpp
+        core/system/interface/i_system_render.hpp
         core/system/system_manager.hpp
         core/system/system_manager.cpp
         game/systems/gameplay/lifetime_system.hpp

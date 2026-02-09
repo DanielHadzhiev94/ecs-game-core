@@ -21,11 +21,6 @@ namespace engine::game
 
         const float alpha = accumulator / FIXED_DT;
         system_manager.update(registry, dt);
-        render(alpha);
-    }
-
-    void World::render(float alpha)
-    {
-        render_system.render(registry, alpha);
+        system_manager.render(registry, alpha);
     }
 }
