@@ -6,7 +6,7 @@
 
 namespace engine::game::systems::gameplay
 {
-    class PlayerControlSystem : public engine::core::system::interface::ISystemUpdate
+    class PlayerControlSystem : public engine::core::system::ISystemUpdate
     {
     public:
         PlayerControlSystem(game::input::InputSystem &input_system);

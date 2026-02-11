@@ -23,17 +23,17 @@ namespace engine::core::system
         SystemManager(const SystemManager &) = delete;
         SystemManager &operator=(const SystemManager &) = delete;
 
-        void register_system(std::unique_ptr<interface::ISystemUpdate> system);
-        void register_system(std::unique_ptr<interface::ISystemFixedUpdate> system);
-        void register_system(std::unique_ptr<interface::ISystemRender> system);
+        void register_system(std::unique_ptr<ISystemUpdate> system);
+        void register_system(std::unique_ptr<ISystemFixedUpdate> system);
+        void register_system(std::unique_ptr<ISystemRender> system);
 
         void update(ecs::Registry &registry, float dt);
         void fixed_update(ecs::Registry &registry, float fixed_dt);
         void render(ecs::Registry &registry, float alpha);
 
     private:
-        std::vector<std::unique_ptr<interface::ISystemFixedUpdate>> fixed_update_systems_;
-        std::vector<std::unique_ptr<interface::ISystemUpdate>> update_systems_;
-        std::vector<std::unique_ptr<interface::ISystemRender>> render_systems_;
+        std::vector<std::unique_ptr<ISystemFixedUpdate>> fixed_update_systems_;
+        std::vector<std::unique_ptr<ISystemUpdate>> update_systems_;
+        std::vector<std::unique_ptr<ISystemRender>> render_systems_;
     };
 }
