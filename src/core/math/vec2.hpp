@@ -49,5 +49,10 @@ namespace engine::math
                 previous.x + (current.x - previous.x) * alpha,
                 previous.y + (current.y - previous.y) * alpha};
         }
+
+        static float dot(const Vec2 &a, const Vec2 &b)
+        {
+            return a.x * b.x + a.y * b.y;
+        }
     };
 }
