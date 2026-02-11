@@ -5,7 +5,7 @@
 
 namespace engine::game::systems::gameplay
 {
-    class MovementSystem : public engine::core::system::interface::ISystemFixedUpdate
+    class MovementSystem : public engine::core::system::ISystemFixedUpdate
     {
     public:
         void fixed_update(ecs::Registry &registry, float fixed_dt) override;

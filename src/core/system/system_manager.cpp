@@ -5,17 +5,17 @@ namespace engine::core::system
 {
     SystemManager::~SystemManager() = default;
 
-    void SystemManager::register_system(std::unique_ptr<interface::ISystemUpdate> system)
+    void SystemManager::register_system(std::unique_ptr<ISystemUpdate> system)
     {
         update_systems_.push_back(std::move(system));
     }
 
-    void SystemManager::register_system(std::unique_ptr<interface::ISystemFixedUpdate> system)
+    void SystemManager::register_system(std::unique_ptr<ISystemFixedUpdate> system)
     {
         fixed_update_systems_.push_back(std::move(system));
     }
 
-    void SystemManager::register_system(std::unique_ptr<interface::ISystemRender> system)
+    void SystemManager::register_system(std::unique_ptr<ISystemRender> system)
     {
         render_systems_.push_back(std::move(system));
     }

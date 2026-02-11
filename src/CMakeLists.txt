@@ -24,8 +24,12 @@ add_library(ecs_core
         game/systems/gameplay/lifetime_system.cpp
         game/components/health.hpp
         game/systems/gameplay/movement_system.hpp
+        game/systems/gameplay/collision_system.hpp
+        game/systems/gameplay/collision_system.cpp
         game/components/position.hpp
         game/components/velocity.hpp
+        game/components/collider.hpp
+        game/components/rigid_body.hpp
         game/systems/gameplay/movements_system.cpp
         game/world/world.hpp
         game/game.hpp

@@ -5,7 +5,7 @@
 
 namespace engine::game::systems::gameplay
 {
-    class LifetimeSystem : public engine::core::system::interface::ISystemFixedUpdate
+    class LifetimeSystem : public engine::core::system::ISystemFixedUpdate
     {
     public:
         void fixed_update(ecs::Registry &registry, float fixed_dt) override;
