@@ -1,5 +1,8 @@
 #pragma once
 
-#namespace game::components {
-	struct EnemyTag {};
+namespace engine::game::components
+{
+	struct EnemyTag
+	{
+	};
 }
