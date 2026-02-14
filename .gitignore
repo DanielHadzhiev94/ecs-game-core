@@ -26,3 +26,5 @@ build.ninja
 
 # Custom
 tests/main
+.vs
+out
