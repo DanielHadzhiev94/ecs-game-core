@@ -54,6 +54,7 @@ add_library(ecs_core
         game/systems/gameplay/player_control_system.hpp
         game/systems/gameplay/player_control_system.cpp
         game/components/player_tag.hpp
+        game/components/enemy_tag.hpp
 
 )
 

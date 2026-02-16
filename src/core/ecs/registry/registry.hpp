@@ -8,30 +8,31 @@
 #include "ecs/entity/entity_manager.hpp"
 #include "ecs/storage/storage_manager.hpp"
 
-
-namespace engine::ecs {
+namespace engine::ecs
+{
     class EntityManager;
     class StorageManager;
 
-    class Registry {
+    class Registry
+    {
     public:
         explicit Registry(EntityManager &entity_manager, StorageManager &storage_manager);
 
         EntityId create();
 
-        template<typename T>
-        bool add(EntityId);
+        template <typename T, typename... Args>
+        bool add(const EntityId entity, Args &&...args);
 
-        template<typename T>
+        template <typename T>
         bool remove(EntityId);
 
-        template<typename T>
+        template <typename T>
         bool has(EntityId) const;
 
-        template<typename T>
+        template <typename T>
         T *get(EntityId);
 
-        template<typename T>
+        template <typename T>
         const T *get(EntityId) const;
 
         bool is_alive(EntityId) const;
@@ -52,8 +53,9 @@ namespace engine::ecs {
         void destroy(EntityId);
     };
 
-    template<typename T>
-    bool Registry::add(const EntityId entity) {
+    template <typename T, typename... Args>
+    bool Registry::add(const EntityId entity, Args &&...args)
+    {
         if (!is_alive(entity))
             return false;
 
@@ -61,11 +63,14 @@ namespace engine::ecs {
             return false;
 
         auto &storage = storage_manager.get_or_create<T>();
-        return storage.create(entity);
+        storage.emplace(entity, std::forward<Args>(args)...);
+
+        return true;
     }
 
-    template<typename T>
-    bool Registry::remove(const EntityId entity) {
+    template <typename T>
+    bool Registry::remove(const EntityId entity)
+    {
         if (!is_alive(entity))
             return false;
 
@@ -79,14 +84,16 @@ namespace engine::ecs {
         return storage->destroy(entity);
     }
 
-    template<typename T>
-    bool Registry::has(const EntityId entity) const {
+    template <typename T>
+    bool Registry::has(const EntityId entity) const
+    {
         auto *storage = storage_manager.get<T>();
         return entity_manager.is_alive(entity) && storage && storage->get(entity);
     }
 
-    template<typename T>
-    T *Registry::get(EntityId entity) {
+    template <typename T>
+    T *Registry::get(EntityId entity)
+    {
         auto *storage = storage_manager.get<T>();
         if (!entity_manager.is_alive(entity) || !storage)
             return nullptr;
@@ -94,8 +101,9 @@ namespace engine::ecs {
         return storage->get(entity);
     }
 
-    template<typename T>
-    const T *Registry::get(EntityId entity) const {
+    template <typename T>
+    const T *Registry::get(EntityId entity) const
+    {
         auto *storage = storage_manager.get<T>();
         if (!entity_manager.is_alive(entity) || !storage)
             return nullptr;
