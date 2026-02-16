@@ -75,7 +75,7 @@ namespace engine::ecs
             // Replace the entity in the searched index, with the entity of the last element
             // this way we can remove the last element
             index_to_entity_[index] = last_entity;
-            entity_to_index_[index] = last_entity.index;
+            entity_to_index_[last_entity.index] = index;
 
             components_.pop_back();
             index_to_entity_.pop_back();
