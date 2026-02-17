@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cmath>
+
 namespace engine::math
 {
     struct Vec2
@@ -53,6 +55,18 @@ namespace engine::math
         static float dot(const Vec2 &a, const Vec2 &b)
         {
             return a.x * b.x + a.y * b.y;
+        }
+
+        Vec2 normalized()
+        {
+            float length = std::sqrt(x * x + y * y);
+
+            constexpr float epsilon = 1e-6f;
+
+            if (length < epsilon)
+                return Vec2{0.0f, 0.0f};
+
+            return Vec2{x / length, y / length};
         }
     };
 }
