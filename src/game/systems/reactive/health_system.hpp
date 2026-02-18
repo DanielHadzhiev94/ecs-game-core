@@ -15,7 +15,7 @@ namespace engine::events
     struct DamageEvent;
 }
 
-namespace engine::game::systems
+namespace engine::game::systems::reactive
 {
     class HealthSystem
     {
@@ -23,7 +23,9 @@ namespace engine::game::systems
         explicit HealthSystem(ecs::Registry &, core::EventBus &);
 
     private:
-        void on_damage(const events::DamageEvent &);
         ecs::Registry &registry_;
+        core::EventBus &event_bus_;
+
+        void on_damage(const events::DamageEvent &);
     };
 }

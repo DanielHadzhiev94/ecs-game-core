@@ -1,15 +1,16 @@
 #include "health_system.hpp"
 #include "core/ecs/registry/registry.hpp"
 #include "core/event/event_bus.hpp"
+#include "game/events/death_event.hpp"
 #include "game/events/damage_event.hpp"
 #include "game/components/health.hpp"
 
-namespace engine::game::systems
+namespace engine::game::systems::reactive
 {
-    HealthSystem::HealthSystem(ecs::Registry &registry, core::EventBus &eventBus)
-        : registry_(registry)
+    HealthSystem::HealthSystem(ecs::Registry &registry, core::EventBus &event_bus)
+        : registry_(registry), event_bus_(event_bus)
     {
-        eventBus.subscribe<events::DamageEvent>(
+        event_bus.subscribe<events::DamageEvent>(
             [this](const events::DamageEvent &event)
             {
                 on_damage(event);
@@ -23,5 +24,11 @@ namespace engine::game::systems
             return;
 
         health->value -= event.amount;
+
+        if (health->value <= 0 && !health->is_dead)
+        {
+            health->is_dead = true;
+            event_bus_.publish<events::DeathEvent>(events::DeathEvent{event.target});
+        }
     }
 };

@@ -33,8 +33,6 @@ add_library(ecs_core
         game/systems/gameplay/movement_system.hpp
         game/systems/gameplay/collision_system.hpp
         game/systems/gameplay/collision_system.cpp
-        game/systems/gameplay/health_system.hpp
-        game/systems/gameplay/health_system.hpp
         game/systems/gameplay/movements_system.cpp
 
         game/components/health.hpp
@@ -55,8 +53,9 @@ add_library(ecs_core
         game/systems/gameplay/ai_enemy_system.cpp
         game/systems/gameplay/player_control_system.hpp
         game/systems/gameplay/player_control_system.cpp
-        game/systems/gameplay/health_system.hpp
-        game/systems/gameplay/health_system.cpp
+
+        game/systems/reactive/health_system.hpp
+        game/systems/reactive/health_system.cpp
         
         game/commands/render_command.hpp
         
@@ -73,6 +72,7 @@ add_library(ecs_core
         game/components/enemy_tag.hpp
 
         game/events/damage_event.hpp
+        game/events/death_event.hpp
 
         game/world/world.hpp
         game/world/world.cpp
