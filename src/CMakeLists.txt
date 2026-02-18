@@ -41,6 +41,8 @@ add_library(ecs_core
         game/systems/render/render_system.cpp
         game/systems/camera/camera_system.hpp
         game/systems/camera/camera_system.cpp
+        game/systems/gameplay/ai_enemy_system.hpp
+        game/systems/gameplay/ai_enemy_system.cpp
         game/components/camera.hpp
         game/commands/render_command.hpp
         game/input/input_action.hpp
