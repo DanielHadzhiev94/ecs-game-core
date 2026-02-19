@@ -25,11 +25,6 @@ public:
     bool is_running() const;
 
 private:
-    // ECS infrastructure (ownership)
-    engine::ecs::EntityManager entity_manager;
-    engine::ecs::StorageManager storage_manager;
-    engine::ecs::Registry registry;
-
     // Rendering backend (ownership)
     engine::render::DummyRenderer renderer;
 

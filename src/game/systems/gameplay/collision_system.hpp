@@ -20,16 +20,15 @@ namespace engine::game::components
 
 namespace engine::game::systems
 {
-    class CollisionSystem final : public engine::core::system::ISystemFixedUpdate
+    class CollisionSystem final : public core::system::ISystemFixedUpdate
     {
-        ~CollisionSystem() = default;
 
     public:
         void fixed_update(ecs::Registry &registry, float fixed_dt) override;
 
     private:
-        static void resolve(engine::game::components::Position &posA, engine::game::components::RigidBody &rbA,
-                            engine::game::components::Position &posB, engine::game::components::RigidBody &rbB,
-                            const engine::math::Vec2 &overlap, const engine::math::Vec2 &delta);
+        static void resolve(components::Position &posA, components::RigidBody &rbA,
+                            components::Position &posB, components::RigidBody &rbB,
+                            const math::Vec2 &overlap, const math::Vec2 &delta);
     };
 }
