@@ -10,7 +10,7 @@ namespace engine::core
     class EventBus;
 }
 
-namespace engine::events
+namespace engine::game::events
 {
     struct DamageEvent;
 }

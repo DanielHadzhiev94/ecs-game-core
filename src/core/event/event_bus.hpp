@@ -18,7 +18,7 @@ namespace engine::core
         {
             auto wrapper = [listener](const void *eventPtr)
             {
-                listener(static_cast<const Event *>(eventPtr));
+                listener(*static_cast<const Event *>(eventPtr));
             };
 
             listeners[typeid(Event)].push_back(wrapper);
