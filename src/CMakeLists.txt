@@ -27,9 +27,9 @@ add_library(ecs_core
         core/system/system_manager.cpp
         
         core/event/event_bus.hpp
-        
-        game/systems/gameplay/lifetime_system.hpp
-        game/systems/gameplay/lifetime_system.cpp
+
+        game/systems/reactive/lifetime_system.hpp
+        game/systems/reactive/lifetime_system.cpp
         game/systems/gameplay/movement_system.hpp
         game/systems/gameplay/collision_system.hpp
         game/systems/gameplay/collision_system.cpp

@@ -9,7 +9,7 @@
 #include "core/render/IRenderer.hpp"
 
 #include "game/systems/reactive/health_system.hpp"
-#include "game/systems/gameplay/lifetime_system.hpp"
+#include "../systems/reactive/lifetime_system.hpp"
 
 namespace engine::game
 {

@@ -6,8 +6,8 @@ namespace engine::game::events
 {
     struct DamageEvent
     {
-        ecs::EntityId attakcer;
+        ecs::EntityId attacker;
         ecs::EntityId target;
-        float amount;
+        std::uint32_t amount;
     };
 }

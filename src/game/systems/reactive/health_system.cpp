@@ -17,7 +17,7 @@ namespace engine::game::systems::reactive
             });
     };
 
-    void HealthSystem::on_damage(const events::DamageEvent &event)
+    void HealthSystem::on_damage(const events::DamageEvent &event) const
     {
         auto *health = registry_.get<components::Health>(event.target);
         if (health == nullptr)
@@ -27,6 +27,8 @@ namespace engine::game::systems::reactive
 
         if (health->value <= 0 && !health->is_dead)
         {
+            health->value = 0;
+
             health->is_dead = true;
             event_bus_.publish<events::DeathEvent>(events::DeathEvent{event.target});
         }

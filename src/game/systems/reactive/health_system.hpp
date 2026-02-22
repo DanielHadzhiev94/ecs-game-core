@@ -26,6 +26,6 @@ namespace engine::game::systems::reactive
         ecs::Registry &registry_;
         core::EventBus &event_bus_;
 
-        void on_damage(const events::DamageEvent &);
+        void on_damage(const events::DamageEvent &) const;
     };
 }
