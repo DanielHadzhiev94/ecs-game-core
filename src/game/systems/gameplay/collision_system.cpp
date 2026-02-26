@@ -4,11 +4,18 @@
 #include "game/components/position.hpp"
 #include "game/components/collider.hpp"
 #include "ecs/view/view.hpp"
+#include "game/components/enemy_tag.hpp"
+#include "game/components/player_tag.hpp"
+#include "game/events/damage_event.hpp"
 
 namespace engine::game::systems
 {
     using namespace engine::game::components;
     using namespace engine::math;
+
+    CollisionSystem::CollisionSystem(core::EventBus &event_bus)
+        :  event_bus_(event_bus){
+    }
 
     void CollisionSystem::fixed_update(ecs::Registry &registry, float /*dt*/)
     {
@@ -56,6 +63,25 @@ namespace engine::game::systems
                 if (overlap.x > 0.f && overlap.y > 0.f)
                 {
                     resolve(posA, rbA, posB, rbB, overlap, delta);
+
+                    bool a_is_player = registry.has<PlayerTag>(a);
+                    bool b_is_enemy = registry.has<EnemyTag>(b);
+
+                    bool a_is_enemy = registry.has<EnemyTag>(a);
+                    bool b_is_player = registry.has<PlayerTag>(b);
+
+                    constexpr float DAMAGE = 10.f;
+
+                    // Player → Enemy
+                    if (a_is_player && b_is_enemy)
+                    {
+                        event_bus_.publish(events::DamageEvent{ a, b, DAMAGE });
+                    }
+
+                    if (b_is_player && a_is_enemy)
+                    {
+                        event_bus_.publish(events::DamageEvent{ b, a, DAMAGE });
+                    }
                 }
             }
         }
