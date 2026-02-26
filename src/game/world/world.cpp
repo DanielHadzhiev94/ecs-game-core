@@ -3,16 +3,13 @@
 #include "game/systems/gameplay/movement_system.hpp"
 #include "game/systems/gameplay/collision_system.hpp"
 #include "game/systems/gameplay/ai_enemy_system.hpp"
-#include "game/systems/render/render_system.hpp"
 
-namespace engine::game
-{
-    World::World(render::IRenderer &)
+
+namespace engine::game {
+    World::World()
         : registry_(entity_manager_, storage_manager_),
-          health_system_(registry_, event_bus_)
-    {
-        // Active systems (owned by SystemManager)
-
+          health_system_(registry_, event_bus_),
+          lifetime_system_(registry_, event_bus_) {
         system_manager_.register_system(
             std::make_unique<systems::gameplay::MovementSystem>());
 
@@ -26,12 +23,10 @@ namespace engine::game
         //     std::make_unique<systems::render::RenderSystem>(renderer));
     }
 
-    void World::tick(float dt)
-    {
+    void World::tick(float dt) {
         accumulator_ += dt;
 
-        while (accumulator_ >= FIXED_DT)
-        {
+        while (accumulator_ >= FIXED_DT) {
             system_manager_.fixed_update(registry_, FIXED_DT);
 
             registry_.execute_scheduled_destruction();
@@ -45,13 +40,11 @@ namespace engine::game
         system_manager_.render(registry_, alpha);
     }
 
-    ecs::Registry &World::registry()
-    {
+    ecs::Registry &World::registry() {
         return registry_;
     }
 
-    core::EventBus &World::event_bus()
-    {
+    core::EventBus &World::event_bus() {
         return event_bus_;
     }
 }

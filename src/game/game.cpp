@@ -3,7 +3,7 @@
 #include "game.hpp"
 
 Game::Game()
-    : world(renderer)
+    : world()
 {
 }
 

@@ -6,7 +6,6 @@
 
 #include "core/event/event_bus.hpp"
 #include "core/system/system_manager.hpp"
-#include "core/render/IRenderer.hpp"
 
 #include "game/systems/reactive/health_system.hpp"
 #include "../systems/reactive/lifetime_system.hpp"
@@ -16,7 +15,7 @@ namespace engine::game
     class World
     {
     public:
-        explicit World(engine::render::IRenderer &renderer);
+        explicit World();
 
         void tick(float dt);
 
@@ -39,7 +38,7 @@ namespace engine::game
 
         // Reactive systems
         systems::reactive::HealthSystem health_system_;
-        systems::gameplay::LifetimeSystem lifetime_system_;
+        systems::reactive::LifetimeSystem lifetime_system_;
 
         float accumulator_ = 0.f;
     };
