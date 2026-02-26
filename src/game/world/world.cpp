@@ -1,9 +1,14 @@
 #include "world.hpp"
 
+#include "game/components/enemy_tag.hpp"
+#include "game/components/health.hpp"
+#include "game/components/player_tag.hpp"
+#include "game/components/velocity.hpp"
 #include "game/systems/gameplay/movement_system.hpp"
 #include "game/systems/gameplay/collision_system.hpp"
 #include "game/systems/gameplay/ai_enemy_system.hpp"
 
+using namespace engine::game::components;
 
 namespace engine::game {
     World::World()
@@ -21,6 +26,23 @@ namespace engine::game {
 
         // system_manager_.register_system(
         //     std::make_unique<systems::render::RenderSystem>(renderer));
+    }
+
+    void World::initialization_demo() {
+        // Creating player
+        auto player_id = registry_.create();
+        registry_.add<Position>(player_id, Position{100.0f, 100.0f});
+        registry_.add<Velocity>(player_id, Velocity{5.0f, 5.0f});
+        registry_.add<Health>(player_id);
+        registry_.add<PlayerTag>(player_id);
+
+
+        // Creating enemy
+        auto enemy_id = registry_.create();
+        registry_.add<Position>(enemy_id, Position{60.0f, 60.0f});
+        registry_.add<Velocity>(enemy_id, Velocity{3.5f, 3.5f});
+        registry_.add<Health>(enemy_id);
+        registry_.add<EnemyTag>(enemy_id);
     }
 
     void World::tick(float dt) {
