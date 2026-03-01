@@ -19,7 +19,7 @@ namespace engine::game {
             std::make_unique<systems::gameplay::MovementSystem>());
 
         system_manager_.register_system(
-            std::make_unique<systems::CollisionSystem>());
+            std::make_unique<systems::CollisionSystem>(event_bus_));
 
         system_manager_.register_system(
             std::make_unique<systems::AiEnemySystem>());

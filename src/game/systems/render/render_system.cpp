@@ -3,7 +3,7 @@
 #include "game/components/camera.hpp"
 #include "ecs/registry/registry.hpp"
 #include "ecs/view/view.hpp"
-#include "ecs/registry/registry.hpp"
+
 
 namespace engine::game::systems::render
 {

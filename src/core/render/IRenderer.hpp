@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../game/commands/render_command.hpp"
+#include "game/commands/render_command.hpp"
 
 
 namespace engine::render {

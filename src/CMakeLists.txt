@@ -13,7 +13,7 @@ add_library(ecs_core
         core/event/event_bus.hpp
 
         core/render/IRenderer.hpp
-        core/render/DummyRenderer.hpp
+        core/render/dummy_renderer.hpp
         
         core/time/clock.hpp
         core/time/Clock.cpp
@@ -56,9 +56,7 @@ add_library(ecs_core
 
         game/systems/reactive/health_system.hpp
         game/systems/reactive/health_system.cpp
-        
-        game/commands/render_command.hpp
-        
+
         game/input/input_action.hpp
         game/input/input_state.hpp
         game/input/input_device.hpp
@@ -79,7 +77,9 @@ add_library(ecs_core
 
         game/game.hpp
         game/game.cpp
-        
+        game/commands/render_command.hpp
+        core/render/dummy_renderer.cpp
+
 )
 
 target_include_directories(ecs_core
