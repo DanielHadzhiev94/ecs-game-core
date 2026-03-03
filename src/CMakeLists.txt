@@ -14,6 +14,7 @@ add_library(ecs_core
 
         core/render/IRenderer.hpp
         core/render/dummy_renderer.hpp
+        core/render/dummy_renderer.cpp
         
         core/time/clock.hpp
         core/time/Clock.cpp
@@ -78,7 +79,7 @@ add_library(ecs_core
         game/game.hpp
         game/game.cpp
         game/commands/render_command.hpp
-        core/render/dummy_renderer.cpp
+
 
 )
 
