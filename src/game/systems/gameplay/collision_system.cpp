@@ -63,25 +63,6 @@ namespace engine::game::systems
                 if (overlap.x > 0.f && overlap.y > 0.f)
                 {
                     resolve(posA, rbA, posB, rbB, overlap, delta);
-
-                    bool a_is_player = registry.has<PlayerTag>(a);
-                    bool b_is_enemy = registry.has<EnemyTag>(b);
-
-                    bool a_is_enemy = registry.has<EnemyTag>(a);
-                    bool b_is_player = registry.has<PlayerTag>(b);
-
-                    constexpr int DAMAGE = 10;
-
-                    // Player → Enemy
-                    if (a_is_player && b_is_enemy)
-                    {
-                        event_bus_.publish(events::DamageEvent{ a, b, DAMAGE });
-                    }
-
-                    if (b_is_player && a_is_enemy)
-                    {
-                        event_bus_.publish(events::DamageEvent{ b, a, DAMAGE });
-                    }
                 }
             }
         }
