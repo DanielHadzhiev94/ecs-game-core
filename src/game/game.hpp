@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../core/render/DummyRenderer.hpp"
+#include "../core/render/dummy_renderer.hpp"
 #include "world/world.hpp"
 #include "time/clock.hpp"
 

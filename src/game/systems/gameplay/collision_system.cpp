@@ -70,7 +70,7 @@ namespace engine::game::systems
                     bool a_is_enemy = registry.has<EnemyTag>(a);
                     bool b_is_player = registry.has<PlayerTag>(b);
 
-                    constexpr float DAMAGE = 10.f;
+                    constexpr int DAMAGE = 10;
 
                     // Player → Enemy
                     if (a_is_player && b_is_enemy)

@@ -6,7 +6,7 @@ namespace engine::game::components
 {
     struct RigidBody
     {
-        engine::math::Vec2 velocity{};
+            math::Vec2 velocity{};
         bool grounded = false;
         bool is_static;
     };

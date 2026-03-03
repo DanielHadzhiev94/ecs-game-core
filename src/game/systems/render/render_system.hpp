@@ -10,7 +10,7 @@ namespace engine::ecs
 
 namespace engine::game::systems::render
 {
-    class RenderSystem : public engine::core::system::ISystemRender
+    class RenderSystem : public core::system::ISystemRender
     {
     public:
         explicit RenderSystem(engine::render::IRenderer &renderer);

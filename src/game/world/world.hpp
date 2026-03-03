@@ -17,6 +17,7 @@ namespace engine::game
     public:
         explicit World();
 
+        void initialization_demo();
         void tick(float dt);
 
         ecs::Registry &registry();
