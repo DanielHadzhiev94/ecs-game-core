@@ -4,8 +4,7 @@
 #include "world/world.hpp"
 #include "time/clock.hpp"
 
-enum class GameState
-{
+enum class GameState {
     Idle,
     Running,
     Stopped
@@ -13,8 +12,7 @@ enum class GameState
 
 constexpr float MAX_FRAME_TIME = 0.25F;
 
-class Game
-{
+class Game {
 public:
     Game();
 
@@ -26,12 +24,12 @@ public:
 
 private:
     // Rendering backend (ownership)
-    engine::render::DummyRenderer renderer;
+    engine::render::DummyRenderer renderer_;
 
     // World (orchestration)
-    engine::game::World world;
+    engine::game::World world_;
 
-    engine::time::Clock clock;
+    engine::time::Clock clock_;
     GameState state = GameState::Idle;
 
     void run();

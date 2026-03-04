@@ -9,6 +9,7 @@
 
 #include "game/systems/reactive/health_system.hpp"
 #include "../systems/reactive/lifetime_system.hpp"
+#include "game/input/input_system.hpp"
 
 namespace engine::game
 {
@@ -36,6 +37,7 @@ namespace engine::game
 
         // Execution orchestration
         core::system::SystemManager system_manager_;
+        input::InputSystem input_system_;
 
         // Reactive systems
         systems::reactive::HealthSystem health_system_;

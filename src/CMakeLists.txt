@@ -79,6 +79,11 @@ add_library(ecs_core
         game/game.hpp
         game/game.cpp
         game/commands/render_command.hpp
+        game/systems/gameplay/attack_system.hpp
+        game/systems/gameplay/attack_system.cpp
+        game/components/range_attack.hpp
+        game/systems/gameplay/cooldown_system.hpp
+        game/systems/gameplay/cooldown_system.cpp
 
 
 )
