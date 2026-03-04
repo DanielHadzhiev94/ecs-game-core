@@ -14,6 +14,10 @@ namespace engine::game::components {
             remaining = cooldown;
         }
 
+        const float get_remaining_cd() const {
+            return remaining;
+        }
+
         bool is_in_cooldown() const noexcept {
             return remaining > 0;
         }
@@ -22,7 +26,6 @@ namespace engine::game::components {
             if (!is_in_cooldown())
                 return;
 
-            std::cout << "I am in cooldown: "<< remaining << std::endl;
             remaining -= dt;
         }
     };

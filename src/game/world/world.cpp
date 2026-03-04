@@ -43,7 +43,7 @@ namespace engine::game {
         registry_.add<Position>(player_id, Position{100.0f, 100.0f});
         registry_.add<Velocity>(player_id, Velocity{5.0f, 5.0f});
         registry_.add<RangeAttack>(player_id);
-        registry_.add<Health>(player_id);
+        registry_.add<Health>(player_id, Health{100});
         registry_.add<PlayerTag>(player_id);
 
 
@@ -51,7 +51,7 @@ namespace engine::game {
         auto enemy_id = registry_.create();
         registry_.add<Position>(enemy_id, Position{90.0f, 90.0f});
         registry_.add<Velocity>(enemy_id, Velocity{3.5f, 3.5f});
-        registry_.add<Health>(enemy_id);
+        registry_.add<Health>(enemy_id, Health{100});
         registry_.add<EnemyTag>(enemy_id);
     }
 

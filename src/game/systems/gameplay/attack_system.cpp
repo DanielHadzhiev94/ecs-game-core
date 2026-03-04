@@ -30,24 +30,30 @@ namespace engine::systems::gameplay {
             auto player_position = registry.get<Position>(player_id);
             auto player_attack = registry.get<RangeAttack>(player_id);
 
-            if (player_position == nullptr || player_attack == nullptr)
-                return;
-
             // Create cooldown system
-            if (player_attack->is_in_cooldown())
-                return;
+            if (player_attack->is_in_cooldown()) {
+                std::cout << "[Attack System] Spell is in cooldown: "
+                        << player_attack->get_remaining_cd()
+                        << std::endl;
+                continue;
+            }
 
             for (auto enemy_id: enemy_view) {
                 auto enemy_position = registry.get<Position>(enemy_id);
                 auto distance = calc_distance(*player_position, *enemy_position);
 
-                if (distance > player_attack->range)
-                    return;
+                if (distance > player_attack->range) {
+                    std::cout << "[Attack System] Out of range: "
+                            << player_attack->get_remaining_cd()
+                            << std::endl;
+
+                    continue;
+                }
 
                 player_attack->attack();
 
                 event_bus_.publish<game::events::DamageEvent>(game::events::DamageEvent{
-                    player_id, player_attack->damage
+                    player_id, enemy_id, player_attack->damage
                 });
             }
         }

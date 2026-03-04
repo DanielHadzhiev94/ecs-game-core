@@ -2,9 +2,7 @@
 
 #include "game.hpp"
 
-Game::Game()
-
-    : world_() {
+Game::Game() {
 }
 
 bool Game::is_running() const {
