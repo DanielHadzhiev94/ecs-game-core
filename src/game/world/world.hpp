@@ -18,9 +18,9 @@ namespace engine::game {
 
         void initialization_demo();
 
-        void simulate_input(std::int32_t frame);
+        void simulate_input(int);
 
-        void tick(float dt);
+        void tick(float);
 
         ecs::Registry &registry();
 
@@ -46,6 +46,6 @@ namespace engine::game {
         systems::reactive::LifetimeSystem lifetime_system_;
 
         float accumulator_ = 0.f;
-        std::int32_t frame = 0;
+        float frame = 0.f;
     };
 }

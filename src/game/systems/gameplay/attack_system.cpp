@@ -33,8 +33,8 @@ namespace engine::systems::gameplay {
             // Create cooldown system
             if (player_attack->is_in_cooldown()) {
                 std::cout << "[Attack System] Spell is in cooldown: "
-                        << player_attack->get_remaining_cd()
-                        << std::endl;
+                        << std::ceil(player_attack->get_remaining_cd())
+                        << "s\n";
                 continue;
             }
 
@@ -43,9 +43,8 @@ namespace engine::systems::gameplay {
                 auto distance = calc_distance(*player_position, *enemy_position);
 
                 if (distance > player_attack->range) {
-                    std::cout << "[Attack System] Out of range: "
-                            << player_attack->get_remaining_cd()
-                            << std::endl;
+                    std::cout << "[Attack System] Out of range"
+                              << std::endl;
 
                     continue;
                 }
