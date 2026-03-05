@@ -11,17 +11,19 @@
 #include "../systems/reactive/lifetime_system.hpp"
 #include "game/input/input_system.hpp"
 
-namespace engine::game
-{
-    class World
-    {
+namespace engine::game {
+    class World {
     public:
         explicit World();
 
         void initialization_demo();
+
+        void simulate_input(std::int32_t frame);
+
         void tick(float dt);
 
         ecs::Registry &registry();
+
         core::EventBus &event_bus();
 
     private:
@@ -44,5 +46,6 @@ namespace engine::game
         systems::reactive::LifetimeSystem lifetime_system_;
 
         float accumulator_ = 0.f;
+        std::int32_t frame = 0;
     };
 }

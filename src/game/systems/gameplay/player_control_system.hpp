@@ -9,11 +9,11 @@ namespace engine::game::systems::gameplay
     class PlayerControlSystem : public engine::core::system::ISystemUpdate
     {
     public:
-        PlayerControlSystem(game::input::InputSystem &input_system);
+        PlayerControlSystem(input::InputSystem &input_system);
 
         void update(ecs::Registry &registry, float dt) override;
 
     private:
-        const game::input::InputSystem &input_system_;
+        input::InputSystem &input_system_;
     };
 }

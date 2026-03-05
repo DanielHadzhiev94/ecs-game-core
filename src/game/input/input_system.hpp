@@ -14,7 +14,7 @@ namespace engine::game::input
 
         void update();
 
-        const InputState state() const;
+        InputState& state();
 
     private:
         InputState state_;

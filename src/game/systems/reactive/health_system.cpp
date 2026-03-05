@@ -24,7 +24,7 @@ namespace engine::game::systems::reactive {
 
         health->value -= event.amount;
 
-        std::cout << "Target " << event.target.index
+        std::cout << "[Health System] " << "Target " << event.target.index
                 << " Receive dmg: " << event.amount
                 << " Remaining health: " << health->value
                 << std::endl;

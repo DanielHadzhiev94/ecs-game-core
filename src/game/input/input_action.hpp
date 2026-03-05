@@ -8,7 +8,7 @@ namespace engine::game::input
         MoveLeft,
         MoveRight,
         Jump,
-        Count,
-        Attack
+        Attack,
+        Count
     };
 }

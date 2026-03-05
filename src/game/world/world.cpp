@@ -17,8 +17,7 @@ namespace engine::game {
     World::World()
         : registry_(entity_manager_, storage_manager_),
           health_system_(registry_, event_bus_),
-          lifetime_system_(registry_, event_bus_),
-          input_system_() {
+          lifetime_system_(registry_, event_bus_) {
         system_manager_.register_system(
             std::make_unique<systems::gameplay::MovementSystem>());
 
@@ -55,7 +54,21 @@ namespace engine::game {
         registry_.add<EnemyTag>(enemy_id);
     }
 
+    void World::simulate_input(std::int32_t frame) {
+        input_system_.update();
+
+        if (frame == 60)
+            input_system_.state().set_pressed(input::InputAction::MoveRight, true);
+
+        if (frame == 120 || frame == 140)
+            input_system_.state().set_pressed(input::InputAction::Attack, true);
+    }
+
     void World::tick(float dt) {
+        frame++;
+
+        simulate_input(frame);
+
         accumulator_ += dt;
 
         while (accumulator_ >= FIXED_DT) {
