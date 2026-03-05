@@ -1,5 +1,7 @@
 #include "lifetime_system.hpp"
 
+#include <iostream>
+
 #include "game/events/death_event.hpp"
 #include "core/event/event_bus.hpp"
 #include "core/ecs/registry/registry.hpp"
@@ -14,6 +16,7 @@ namespace engine::game::systems::reactive {
     }
 
     void LifetimeSystem::on_death(const events::DeathEvent &event) const {
+        std::cout<< "[Lifetime System] " << "Target " << event.target.index << " is dead" << std::endl;
         registry_.schedule_destruction(event.target);
     }
 }

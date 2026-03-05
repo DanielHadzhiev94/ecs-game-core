@@ -2,8 +2,7 @@
 
 #include "game.hpp"
 
-Game::Game()
-    : world() {
+Game::Game() {
 }
 
 bool Game::is_running() const {
@@ -24,16 +23,16 @@ void Game::stop() {
 
 void Game::run() {
     // Create player and enemy
-    world.initialization_demo();
+    world_.initialization_demo();
 
     // Set the last_frame here, to prevent
     // to large first FrameTime
-    clock.set_initial_frame();
+    clock_.set_initial_frame();
 
     while (is_running()) {
-        auto frameTime = clock.restart();
+        auto frameTime = clock_.restart();
         frameTime = std::min(frameTime, MAX_FRAME_TIME);
 
-        world.tick(frameTime);
+        world_.tick(frameTime);
     }
 }

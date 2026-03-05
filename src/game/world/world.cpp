@@ -1,12 +1,18 @@
+#include <thread>
+#include <chrono>
+
 #include "world.hpp"
 
 #include "game/components/enemy_tag.hpp"
 #include "game/components/health.hpp"
 #include "game/components/player_tag.hpp"
+#include "game/components/range_attack.hpp"
 #include "game/components/velocity.hpp"
 #include "game/systems/gameplay/movement_system.hpp"
 #include "game/systems/gameplay/collision_system.hpp"
 #include "game/systems/gameplay/ai_enemy_system.hpp"
+#include "game/systems/gameplay/attack_system.hpp"
+#include "game/systems/gameplay/cooldown_system.hpp"
 
 using namespace engine::game::components;
 
@@ -24,6 +30,11 @@ namespace engine::game {
         system_manager_.register_system(
             std::make_unique<systems::AiEnemySystem>());
 
+        system_manager_.register_system(
+            std::make_unique<engine::systems::gameplay::AttackSystem>(event_bus_, input_system_));
+
+        system_manager_.register_system(std::make_unique<systems::gameplay::CooldownSystem>());
+
         // system_manager_.register_system(
         //     std::make_unique<systems::render::RenderSystem>(renderer));
     }
@@ -33,19 +44,43 @@ namespace engine::game {
         auto player_id = registry_.create();
         registry_.add<Position>(player_id, Position{100.0f, 100.0f});
         registry_.add<Velocity>(player_id, Velocity{5.0f, 5.0f});
-        registry_.add<Health>(player_id);
+        registry_.add<RangeAttack>(player_id);
+        registry_.add<Health>(player_id, Health{100});
         registry_.add<PlayerTag>(player_id);
 
 
-        // Creating enemy
+        // Creating enemys
         auto enemy_id = registry_.create();
-        registry_.add<Position>(enemy_id, Position{60.0f, 60.0f});
+        registry_.add<Position>(enemy_id, Position{90.0f, 90.0f});
         registry_.add<Velocity>(enemy_id, Velocity{3.5f, 3.5f});
-        registry_.add<Health>(enemy_id);
+        registry_.add<Health>(enemy_id, Health{20});
         registry_.add<EnemyTag>(enemy_id);
     }
 
+    void World::simulate_input(int second)
+    {
+        auto& input = input_system_.state();
+
+        if (second == 1)
+            input.set_pressed(input::InputAction::MoveRight, true);
+
+        if (second == 3)
+            input.set_pressed(input::InputAction::Attack, true);
+
+        if (second == 5)
+            input.set_pressed(input::InputAction::Attack, true);
+
+        if (second == 25)
+            input.set_pressed(input::InputAction::Attack, true);
+    }
+
     void World::tick(float dt) {
+        frame++;
+
+        input_system_.update();
+
+        simulate_input(frame);
+
         accumulator_ += dt;
 
         while (accumulator_ >= FIXED_DT) {
@@ -60,6 +95,8 @@ namespace engine::game {
 
         system_manager_.update(registry_, dt);
         system_manager_.render(registry_, alpha);
+
+        std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 
     ecs::Registry &World::registry() {

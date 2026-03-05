@@ -9,18 +9,21 @@
 
 #include "game/systems/reactive/health_system.hpp"
 #include "../systems/reactive/lifetime_system.hpp"
+#include "game/input/input_system.hpp"
 
-namespace engine::game
-{
-    class World
-    {
+namespace engine::game {
+    class World {
     public:
         explicit World();
 
         void initialization_demo();
-        void tick(float dt);
+
+        void simulate_input(int);
+
+        void tick(float);
 
         ecs::Registry &registry();
+
         core::EventBus &event_bus();
 
     private:
@@ -36,11 +39,13 @@ namespace engine::game
 
         // Execution orchestration
         core::system::SystemManager system_manager_;
+        input::InputSystem input_system_;
 
         // Reactive systems
         systems::reactive::HealthSystem health_system_;
         systems::reactive::LifetimeSystem lifetime_system_;
 
         float accumulator_ = 0.f;
+        float frame = 0.f;
     };
 }

@@ -17,7 +17,7 @@ namespace engine::game::input
         }
     }
 
-    const InputState InputSystem::state() const
+     InputState& InputSystem::state()
     {
         return state_;
     }
